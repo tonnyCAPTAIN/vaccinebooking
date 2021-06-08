@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+    
+{% block title %} BOOK {% endblock %}
+
+{% block content %} 
+{% load crispy_forms_tags %}
+  
+
+  <form method="POST" action="">
+          {% csrf_token %}
+                <div class="form-group">
+                        <label for="Book Date">Date</label>
+                        <input id="datepicker" class="form-control" name="book">
+                        <button type="submit" class="btn btn-primary">BOOK</button
+
+                </div>
+                        
+        </form>
+         {% if messages %}
+        {% for message in messages %}
+                <div class="alert alert-{{message.tag}}">{{message}}</div>
+        {% endfor %}
+
+
+
+        <p><a href="{% url 'logout' %}">Log out</a></p>
+
+
+{% endif %}
+{% endblock %}

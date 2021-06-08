@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %} WELCOME TO KNH VACCINE BOOKING{% endblock %}
+
+{% block content %} 
+
+
+
+<h1> WELCOME TO KNH VACCINE BOOKING !!!</h1>
+
+
+{% if user.is_authenticated %}
+    Hi {{ user.username }} Proceed to make your vaccine booking
+    <a href="{% url 'logout' %}">Log out</a>
+
+
+
+
+{% else %}
+    <p>You are not Logged in</p>
+
+    <!-- <p><a href="{% url 'signup' %}">Sign up</a></p> -->
+
+    <!-- <p><a href="{% url 'login' %}">Log in</a></p> -->
+
+
+{% endif %}
+
+
+{% endblock %}
