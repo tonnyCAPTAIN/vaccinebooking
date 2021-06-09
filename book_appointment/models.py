@@ -32,7 +32,7 @@ class Book(models.Model):
 
     person = models.ForeignKey(User,on_delete=models.CASCADE ,default= None)
 
-    date = models.DateTimeField(auto_now=True, null=False)
+    date = models.DateField(null=False)
 
 
     # choice = [

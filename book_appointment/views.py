@@ -75,21 +75,22 @@ def signup(request):
 
 @login_required
 def book(request):
-    form = BookForm()
+    #form = BookForm()
     if request.method == 'POST':
-        bookdate = request.POST.get('bookdate')
-        formated_date = datetime.strptime(str(bookdate, "%m/%d/%Y"))
-        bk = request(date=formated_date)
-        bk.save()
+        form = BookForm(request.POST)
+        if form.is_valid():
+            date = form.cleaned_data['date']
+            
+            instace =form.save(commit = False)
+            instace.person = request.user
+            instace.save()
 
-        instace =bk(commit=False)
-        instace.person = request.user
-        instace.save()
+            messages.success(request, 'Successfully booked')
 
-        messages.success(request, 'Successfully booked')
+        return redirect('/book_appointment/book')   
+    else:
 
-        
-
+        form = BookForm()
     
     return render(request, 'book.html', {'form':form})
 

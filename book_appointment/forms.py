@@ -1,5 +1,5 @@
 from django import forms
-from django.forms import ModelForm
+from django.forms import ModelForm, widgets
 from .models import Book,Profile
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
@@ -14,12 +14,17 @@ class SignUpForm(UserCreationForm):
         model = User
         fields = ('username', 'password1', 'password2')
 
+class DateInput(forms.DateInput):
+    input_type = 'date'
 
 class BookForm(ModelForm):  
     class Meta:
         model = Book
         fields = '__all__' 
 
+        widgets= {
+            'date': DateInput(),
+        }
 
 class ProfileForm(ModelForm):
     class Meta:
