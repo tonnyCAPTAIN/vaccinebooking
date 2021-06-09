@@ -40,13 +40,13 @@ form {
     overflow: hidden;
 
     /* Styles */
-    background: rgb(38, 150, 144); 
+    background: rgb(163, 182, 181); 
     border-radius: 0.4em;
     border: 1px solid #191919;
     box-shadow: 
         inset 0 0 2px 1px rgba(255,255,255,0.08), 
         0 16px 10px -8px rgba(0, 0, 0, 0.6);
-
+}
 
 
 /* .form-3 label {
@@ -169,7 +169,7 @@ input[type=password] {
 .form-3:before {
     /* Size and position */
     content: "";
-    width: 8px;
+    width: 10px;
     height: 5px;
     position: absolute;
     left: 34%;
@@ -205,12 +205,35 @@ input[type=password] {
 .xyz{
     width: 60%;
     padding: 50px 50px;
-    background-color: magenta; 
+    background-color: rgb(236, 204, 236); 
     
 }
 
 input[type=text] {
-    background-color: mediumblue;
+    background-color:white(223, 223, 233);
     background-position: 10px 10px;
     
 }
+
+.form-2{
+
+    font-family:  sans-serif;
+    font-weight: 400;
+
+    width: 300px;
+    position: relative;
+    margin: auto;
+    padding: 10px;
+    overflow: hidden;
+    
+
+    background: rgb(163, 182, 181); 
+    border-radius: 0.4em;
+    border: 1px solid #191919;
+    box-shadow: 
+        inset 0 0 2px 1px rgba(255,255,255,0.08), 
+        0 16px 10px -8px rgba(0, 0, 0, 0.6);
+
+}
+
+
