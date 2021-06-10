@@ -1,3 +1,4 @@
+from datetime import date
 from django import forms
 from django.forms import ModelForm, widgets
 from .models import Book,Profile
@@ -20,10 +21,11 @@ class DateInput(forms.DateInput):
 class BookForm(ModelForm):  
     class Meta:
         model = Book
-        fields = '__all__' 
+        fields = ['date'] 
 
         widgets= {
             'date': DateInput(),
+
         }
 
 class ProfileForm(ModelForm):

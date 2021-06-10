@@ -1,6 +1,7 @@
 
 
 from datetime import datetime
+from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.http import HttpResponseRedirect
@@ -75,12 +76,14 @@ def signup(request):
 
 @login_required
 def book(request):
+    print(request.user)
     #form = BookForm()
     if request.method == 'POST':
         form = BookForm(request.POST)
         if form.is_valid():
             date = form.cleaned_data['date']
-            
+           
+         
             instace =form.save(commit = False)
             instace.person = request.user
             instace.save()

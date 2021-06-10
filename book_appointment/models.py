@@ -35,28 +35,5 @@ class Book(models.Model):
     date = models.DateField(null=False)
 
 
-    # choice = [
-    #     ('Very urgent', 'Morning'),
-    #     ('Urgent', 'Mid-morning'),
-    #     ('Medium', 'Afternoon'),
-    #     ('Low', 'Evening'),
-    #     ]
-    
-    # time = models.CharField(max_length= 12, choices= choice, default='urgent')
-
-
-    # Doctor_Choice =[
-    #         ('green','GREEN'),
-    #         ('blue', 'BLUE'),
-    #         ('red','RED'),
-    #         ('orange','ORANGE'),
-    #         ('black','BLACK'),
-    #     ]
-
-
-    # doctor = models.CharField(max_length=6, choices= Doctor_Choice, default='green')
-
-
-
-    # def __str__(self):
-    #     return self.time
+    def __str__ (self):
+        return self.person

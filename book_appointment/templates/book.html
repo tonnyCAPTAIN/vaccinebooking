@@ -4,6 +4,11 @@
 
 {% block content %} 
 {% load crispy_forms_tags %}
+
+<!-- current user :{{ user.id}}
+ {% if user.is_authenticated %} -->
+
+
   
 <form action="" enctype="multipart/form-data" method="POST">
         {% csrf_token %}
@@ -11,6 +16,11 @@
         <input type="submit" name="submit" value="BOOK">
 
 </form>
+<!-- {% else %}
+<h2>You need to log in</h2>
+
+{% endif %} -->
+
 
 
 
