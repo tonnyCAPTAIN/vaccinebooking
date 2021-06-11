@@ -11,7 +11,7 @@ from django.contrib.auth import login, authenticate, logout as auth_logout
 from django.contrib.auth.decorators import login_required
 from .forms import BookForm
 from book_appointment.forms import SignUpForm, BookForm, ProfileForm
-
+from .models import Book
 
 
 def homepage(request):
@@ -76,26 +76,49 @@ def signup(request):
 
 @login_required
 def book(request):
-    print(request.user)
+    #print(request.user.id)
+    #print(len(Book.objects.filter(person_id = request.user.id)))
+
     #form = BookForm()
     if request.method == 'POST':
+        
         form = BookForm(request.POST)
         if form.is_valid():
             date = form.cleaned_data['date']
-           
-         
-            instace =form.save(commit = False)
-            instace.person = request.user
-            instace.save()
+            if len(Book.objects.filter(person_id = request.user.id)) == 0:
+                print('xyz')
+                instace =form.save(commit = False)
+                instace.person = request.user
+                instace.save()
 
-            messages.success(request, 'Successfully booked')
+                messages.success(request, 'Successfully booked')
+            else: 
+                print('abc')
+                messages.info(request, 'Book Again Please' )
+                bk = Book.objects.filter(person_id = request.user.id)#.values('date')
+                bk.delete()
+                
+               
+                
+                #context = {'bk': bk}
+                #return render(request, 'book.html', {'bk':bk})
 
-        return redirect('/book_appointment/book')   
+            return redirect('/book_appointment/book')
+                       
+                
+
+        return redirect('/book_appointment/book')
+
     else:
 
         form = BookForm()
     
     return render(request, 'book.html', {'form':form})
+
+
+
+
+
 
 
 

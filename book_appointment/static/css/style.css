@@ -203,7 +203,7 @@ input[type=password] {
 
 /* profile */
 .xyz{
-    width: 60%;
+    width: 40%;
     padding: 50px 50px;
     background-color: rgb(236, 204, 236); 
     
@@ -236,4 +236,12 @@ input[type=text] {
 
 }
 
+/* .form-4 {
 
+     width: 300px;
+    position: relative;
+    margin: 60px auto 30px;
+    padding: 10px;
+    background-color: cyan;
+
+} */

@@ -10,7 +10,7 @@
 
 
   
-<form action="" enctype="multipart/form-data" method="POST">
+<form  class="form-4" action="" enctype="multipart/form-data" method="POST">
         {% csrf_token %}
         {{ form | crispy}}
         <input type="submit" name="submit" value="BOOK">
@@ -27,12 +27,37 @@
          {% if messages %}
         {% for message in messages %}
                 <div class="alert alert-{{message.tag}}">{{message}}</div>
+
+
+                <tr>
+
+                        <td> {{ bk }}</td>
+                 
+                         </tr>
+
+      
         {% endfor %}
 
 
+        <td>
+       {% for bk in bk %}
+        
 
-        <p><a href="{% url 'logout' %}">Log out</a></p>
+       <tr>{{ bk.datetime }}</tr> <br>
+
+        
+        {% endfor %}
+         </td>
+
+
+
+
+                <p><a href="{% url 'logout' %}">Log out</a></p>
 
 
 {% endif %}
+
+
+
+
 {% endblock %}
