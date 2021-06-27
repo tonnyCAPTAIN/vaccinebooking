@@ -74,7 +74,7 @@ def signup(request):
 
 
 
-@login_required
+@login_required(login_url='login')
 def book(request):
     #print(request.user.id)
     #print(len(Book.objects.filter(person_id = request.user.id)))
@@ -94,34 +94,34 @@ def book(request):
                 messages.success(request, 'Successfully booked')
             else: 
                 print('abc')
-                messages.info(request, 'Book Again Please' )
-                bk = Book.objects.filter(person_id = request.user.id)#.values('date')
-                bk.delete()
+                
+                bk = Book.objects.get(person_id = request.user.id)#.values('date')
+                form = BookForm(request.POST, instance=bk)
+                form.save()
+
+                messages.info(request, 'succesfully Updated' )
                 
                
-                
-                #context = {'bk': bk}
-                #return render(request, 'book.html', {'bk':bk})
+                {'form': form}
+               
+            return render(request, 'book.html', {'form': form})
 
             return redirect('/book_appointment/book')
                        
-                
+        else:
 
-        return redirect('/book_appointment/book')
+            return redirect('/book_appointment/book')
 
     else:
 
         form = BookForm()
     
-    return render(request, 'book.html', {'form':form})
+        return render(request, 'book.html', {'form':form})
 
 
 
 
-
-
-
-
+@login_required(login_url='login')
 def profile(request):
     #form = ProfileForm
     if request.method == 'POST':

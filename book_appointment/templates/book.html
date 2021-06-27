@@ -29,33 +29,28 @@
                 <div class="alert alert-{{message.tag}}">{{message}}</div>
 
 
-                <tr>
-
-                        <td> {{ bk }}</td>
-                 
-                         </tr>
+       
 
       
         {% endfor %}
 
 
-        <td>
+        <!-- <td>
        {% for bk in bk %}
         
 
-       <tr>{{ bk.datetime }}</tr> <br>
+       <tr>{{ form }}</tr> <br>
 
-        
+        </td> -->
         {% endfor %}
-         </td>
-
-
-
+        
+        {% endif %}
+        
 
                 <p><a href="{% url 'logout' %}">Log out</a></p>
 
 
-{% endif %}
+
 
 
 
