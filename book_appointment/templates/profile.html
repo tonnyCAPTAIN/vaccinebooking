@@ -8,10 +8,11 @@
 <div class="container-fluid">
     <div class="col-md-6 offset-md-3">
 
-        <form class="xyz" action="" method="post">
+        <form class="xyz" action=""  enctype="multipart/form-data"  method="post">
 
         {% csrf_token %}
         <div class="form-group">
+            <!-- {{ form.media }} -->
             {{ form | crispy}}
         </div>
         

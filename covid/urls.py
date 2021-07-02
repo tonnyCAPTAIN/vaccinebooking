@@ -18,8 +18,8 @@ from django.urls import path, include
 
 from django.contrib.auth import views as auth_views
 from book_appointment import views as v
-
-
+from django.conf.urls.static import static
+from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -29,4 +29,6 @@ urlpatterns = [
     path('logout/', v.logout, name='logout'),
     #path('login/', auth_views.login, {'template_name': 'registration/signup.html'}, name='login'),
     path('book_appointment/', include('book_appointment.urls')),
-]
+
+
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

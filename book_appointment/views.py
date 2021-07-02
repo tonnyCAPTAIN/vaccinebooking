@@ -125,7 +125,7 @@ def book(request):
 def profile(request):
     #form = ProfileForm
     if request.method == 'POST':
-        form = ProfileForm(request.POST, instance = request.user.profile)
+        form = ProfileForm(request.POST, files=request.FILES, instance = request.user.profile,)
         if form.is_valid():
             form.save()
         

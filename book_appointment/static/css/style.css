@@ -33,10 +33,10 @@ form {
     font-family:  sans-serif;
     font-weight: 400;
     /* Size and position */
-    width: 300px;
+    width: 85%;
     position: relative;
     margin: 60px auto 30px;
-    padding: 10px;
+    padding: 40px 30px;
     overflow: hidden;
 
     /* Styles */
@@ -183,7 +183,7 @@ input[type=password] {
 .form-3 p:nth-child(1):before{
     /* Size and position */
     content: "";
-    width: 250px;
+    width: 90%;
     height: 100px;
     position: absolute;
     top: 0;
@@ -203,9 +203,9 @@ input[type=password] {
 
 /* profile */
 .xyz{
-    width: 40%;
+    width: 100%;
     padding: 50px 50px;
-    background-color: rgb(236, 204, 236); 
+    background-color: rgba(94, 112, 80, 0.514); 
     
 }
 
@@ -220,10 +220,10 @@ input[type=text] {
     font-family:  sans-serif;
     font-weight: 400;
 
-    width: 300px;
+    width: 100%;
     position: relative;
     margin: auto;
-    padding: 10px;
+    padding: 40px 40px;
     overflow: hidden;
     
 
@@ -236,12 +236,18 @@ input[type=text] {
 
 }
 
-/* .form-4 {
+.form-4 {
+    
 
-     width: 300px;
+    font-family:  sans-serif;
+    font-weight: 400;
+
+    width: 500px;
     position: relative;
-    margin: 60px auto 30px;
+    margin: auto;
     padding: 10px;
+
+
     background-color: cyan;
 
-} */
+}

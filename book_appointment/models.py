@@ -16,6 +16,7 @@ class Profile(models.Model):
     Occupation = models.CharField(max_length=50, blank= False)
     Email = models.EmailField(max_length= 254)
     #Phone_number = models.IntegerField(blank= True)
+    passport = models.ImageField(upload_to='media/images/',height_field=None, width_field=None, null=True, blank=False)
 
 
     def __str__(self):
