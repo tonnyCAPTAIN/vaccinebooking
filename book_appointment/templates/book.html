@@ -29,23 +29,12 @@
                 <div class="alert alert-{{message.tag}}">{{message}}</div>
 
 
-       
-
-      
         {% endfor %}
         {% endif %}
 
 
-        
-       
-        
-
-                <p><a href="{% url 'logout' %}">Log out</a></p>
-
-
-
-
-
+        Hi {{user.username}} <br>
+        <centre><a class="btn btn-primary" href="{% url 'logout' %}" role="button">Log out</a></centre>
 
 
 {% endblock %}
