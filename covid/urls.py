@@ -23,12 +23,12 @@ from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('book_appointment/', include('django.contrib.auth.urls')),
+    path('', include('django.contrib.auth.urls')),
     path('signup/', v.signup, name='signup'),
     # path('login/', v.login, {'template_name': 'registration/login.html'}, name='login'),
     path('logout/', v.logout, name='logout'),
     #path('login/', auth_views.login, {'template_name': 'registration/signup.html'}, name='login'),
-    path('book_appointment/', include('book_appointment.urls')),
+    path('', include('book_appointment.urls')),
 
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

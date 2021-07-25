@@ -120,6 +120,17 @@ USE_L10N = True
 USE_TZ = True
 
 
+
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail'
+EMAIL_HOST_USER = 'tonnycaptain7@gmail.com'
+EMAIL_HOST_PASSWORD= ''
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_USE_SSL = False
+
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
@@ -127,9 +138,9 @@ STATIC_URL = '/static/'
 
 #STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
-LOGIN_REDIRECT_URL = '/book_appointment/profile/'
+LOGIN_REDIRECT_URL = '/profile/'
 
-LOGOUT_REDIRECT_URL = '/book_appointment/'
+LOGOUT_REDIRECT_URL = '/'
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),

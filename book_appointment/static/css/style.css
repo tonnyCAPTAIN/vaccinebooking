@@ -40,7 +40,7 @@ form {
     overflow: hidden;
 
     /* Styles */
-    background: rgb(163, 182, 181); 
+    background: hsl(180, 13%, 94%); 
     border-radius: 0.4em;
     border: 1px solid #191919;
     box-shadow: 
@@ -140,16 +140,16 @@ input[type=password] {
 
 }
 
-.form-3 input[type=submit]:active { 
-    background: #287db5;
+/* .form-3 input[type=submit]:active { 
+    background: #f4f6f8;
     box-shadow: inset 0 0 3px rgba(0,0,0,0.6);
     border-color: #000; /* Fallback */
-    border-color: rgba(0,0,0,0.9);
-}
+    /* border-color: rgba(0,0,0,0.9);
+} 
 
 .no-boxshadow .form-3 input[type=submit]:hover {
     background: #2a92d8;
-}
+} */
 
 /* Gradient line */
 .form-3:after {
@@ -191,7 +191,7 @@ input[type=password] {
 
     /* Styles */
     transform: rotate(75deg);
-    background: linear-gradient(50deg, rgba(255,255,255,0.15), rgba(0,0,0,0));
+    background: linear-gradient(50deg, rgba(248, 248, 248, 0.953), rgba(0,0,0,0));
     pointer-events: none;
 }
 
@@ -227,7 +227,7 @@ input[type=text] {
     overflow: hidden;
     
 
-    background: rgb(163, 182, 181); 
+    background: rgb(237, 240, 240); 
     border-radius: 0.4em;
     border: 1px solid #191919;
     box-shadow: 

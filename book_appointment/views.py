@@ -1,5 +1,6 @@
 
 
+from covid.settings import EMAIL_HOST_USER
 from datetime import datetime
 from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
@@ -12,7 +13,7 @@ from django.contrib.auth.decorators import login_required
 from .forms import BookForm
 from book_appointment.forms import SignUpForm, BookForm, ProfileForm
 from .models import Book
-
+from django.core.mail import message, send_mail
 
 def homepage(request):
     
@@ -33,7 +34,7 @@ def login(request):
                 form = Loginform()
                 login(request, user)
 
-                return redirect('book')
+                return redirect('profile')
             else:
                 messages.error(request, "Invalid username or password")
 
@@ -60,13 +61,18 @@ def signup(request):
     if request.method == 'POST':
         form = SignUpForm(request.POST)
         if form.is_valid():
-            user = form.save()
-            # user.refresh_from_db()
-            #user.profile.birthdate = form.cleaned_data.get('birthdate')
+            form.save()
+            
+
+            
+            username = form.cleaned_data.get('username')
+            password = form.cleaned_data.get('password1')
+            
+
+            user = authenticate(username=username, password=password)
             user.save()
-            raw_password = form.cleaned_data.get('password1')
-            user = authenticate(username=user.username, password=raw_password)
             #login(user)
+            
             return redirect('login')
     else:
         form = SignUpForm()
@@ -76,10 +82,7 @@ def signup(request):
 
 @login_required(login_url='login')
 def book(request):
-    #print(request.user.id)
-    #print(len(Book.objects.filter(person_id = request.user.id)))
-
-    #form = BookForm()
+    
     if request.method == 'POST':
         
         form = BookForm(request.POST)
@@ -103,14 +106,18 @@ def book(request):
                 
                
                 {'form': form}
+
+
                
             return render(request, 'book.html', {'form': form})
 
-            return redirect('/book_appointment/book')
+            return redirect('logout')
                        
         else:
 
-            return redirect('/book_appointment/book')
+            return redirect('book')
+
+    
 
     else:
 
@@ -131,7 +138,7 @@ def profile(request):
         
             messages.success(request, 'Your profile has been updated!')
             
-            return redirect ('/book_appointment/book')
+            return redirect ('/book')
     else:
         form = ProfileForm(instance=request.user.profile)
 
@@ -141,4 +148,10 @@ def profile(request):
 
 def logout(request):
     auth_logout(request)
-    return redirect('/book_appointment')
+    return redirect('home')
+
+
+
+def mail(request):
+    subject ='booking'
+    message = 'Thank you for booking'
