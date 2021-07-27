@@ -243,11 +243,11 @@ input[type=text] {
     font-weight: 400;
 
     width: 500px;
-    position: relative;
+    position: centre;
     margin: auto;
     padding: 10px;
 
 
-    background-color: cyan;
+    background-color: rgb(67, 115, 134);
 
 }
