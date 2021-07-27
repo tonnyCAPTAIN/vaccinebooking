@@ -155,3 +155,9 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 django_heroku.settings(locals())
+
+# if os.getcwd() == '/app':
+#     import dj_database_url
+#     DATABASES={
+#         'default': dj_database_url.config(default='postgres://localhos')
+#     }
