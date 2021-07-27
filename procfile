@@ -1,1 +1,1 @@
-web: gunicorn book_appointment.wgsi
+web gunicorn book_appointment.wgsi
