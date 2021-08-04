@@ -13,7 +13,7 @@ from django.contrib.auth.decorators import login_required
 from .forms import BookForm
 from book_appointment.forms import SignUpForm, BookForm, ProfileForm
 from .models import Book
-from django.core.mail import message, send_mail
+from django.core.mail import  send_mail
 
 def homepage(request):
     
@@ -136,8 +136,22 @@ def profile(request):
         if form.is_valid():
             form.save()
         
-            messages.success(request, 'Your profile has been updated!')
-            
+            #messages.success(request, 'Your profile has been updated!')
+
+            # data = {
+            #     'firstname':firstname,
+            #     'email': email,
+            #     'subject': subject,
+            #     'message': message
+
+            # }
+            # message = '''
+            # New message:{}
+
+            # From: {}    
+                
+            #     '''.format(data['message'], data['email'])
+            # send_mail(data['subject'], message, '',['tonnycaptain7@gmail.com'])
             return redirect ('/book')
     else:
         form = ProfileForm(instance=request.user.profile)
