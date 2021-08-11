@@ -38,3 +38,12 @@ class Book(models.Model):
 
     def __str__ (self):
         return str(self.person)
+
+
+class Doctor(models.Model):
+    name = models.CharField(max_length=100, blank=False)
+
+
+    def __str__(self):
+        return str(self.name)
+

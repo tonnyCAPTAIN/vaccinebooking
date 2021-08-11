@@ -9,16 +9,26 @@ from django.http import HttpResponseRedirect
 
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import login, authenticate, logout as auth_logout 
-from django.contrib.auth.decorators import login_required
+from django.contrib.auth.decorators import login_required, user_passes_test
 from .forms import BookForm
 from book_appointment.forms import SignUpForm, BookForm, ProfileForm
-from .models import Book
-from django.core.mail import  send_mail
+from .models import Book, Doctor, Profile
+from django.core.mail import  send_mail, EmailMessage
+from django.conf import settings
+from django.template.loader import render_to_string
 
 def homepage(request):
     
     return render(request, 'home.html')
 
+
+@user_passes_test(lambda u: u.is_superuser)
+def doctor(request):
+    doctors = Doctor.objects.all()
+    
+    context = {'doctors' : doctors}
+    
+    return render(request, 'admin.html', context)
 
 def login(request):
     
@@ -88,19 +98,45 @@ def book(request):
         form = BookForm(request.POST)
         if form.is_valid():
             date = form.cleaned_data['date']
+            
             if len(Book.objects.filter(person_id = request.user.id)) == 0:
-                print('xyz')
+                print(date)
                 instace =form.save(commit = False)
                 instace.person = request.user
                 instace.save()
+                
+                dat = date.strftime("%Y-%m-%d")
+                print(dat)
+                template = render_to_string('email.html', {'name':request.user.profile.First_name,'dat':dat})
+                email = EmailMessage(
+                    'Thanks for booking',
+                    template,
+                    settings.EMAIL_HOST_USER,
+                    [request.user.profile.Email],
+                )
+
+                email.send(fail_silently = False)
+                email.send()
 
                 messages.success(request, 'Successfully booked')
             else: 
-                print('abc')
-                
+                print(date)
+
+                dat = date.strftime("%Y-%m-%d")
                 bk = Book.objects.get(person_id = request.user.id)#.values('date')
                 form = BookForm(request.POST, instance=bk)
                 form.save()
+
+                template = render_to_string('email.html', {'name':request.user.profile.First_name,'dat':dat})
+                email = EmailMessage(
+                    'Thanks for booking',
+                    template,
+                    settings.EMAIL_HOST_USER,
+                    [request.user.profile.Email],
+                )
+
+                email.send(fail_silently = False)
+                email.send()
 
                 messages.info(request, 'succesfully Updated' )
                 
@@ -157,6 +193,22 @@ def profile(request):
         form = ProfileForm(instance=request.user.profile)
 
     return render(request, 'profile.html', {'form': form})
+
+def give_vac(request):  
+    doctors = Doctor.objects.all()
+    lsts = Profile.objects.all()
+    clusters = [lsts[person_id:person_id+3] for person_id in range(0, len(lsts), 3)]
+    # print (clusters)
+    docs = [doctors[id:id+4] for id in range(0, len(doctors), 4)]
+    print(docs)
+    context= {'clusters': clusters,
+                'docs':docs,
+    }
+
+    return render(request, 'give_vac.html', context)
+    
+
+
 
 
 

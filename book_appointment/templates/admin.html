@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %} admin page{% endblock %}
+
+{% block content %} 
+
+<h2>This are the available doctors </h2>
+
+{% for doctor in doctors %}
+
+<h3>dr.{{doctor.name}} </h3> <br>
+
+
+{% endfor %}
+
+{% endblock %}
