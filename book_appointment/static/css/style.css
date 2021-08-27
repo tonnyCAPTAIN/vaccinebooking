@@ -240,7 +240,7 @@ input[type=text] {
     font-weight: 400;
     width: 500px;
     position: centre;
-    margin: auto;
+    margin-top: 50px;
     padding: 10px;
     background-color: rgb(67, 115, 134);
 }
