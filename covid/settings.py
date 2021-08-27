@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 from pathlib import Path
 
 import os
+import django_heroku
 
 from decouple import config, Csv
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -138,7 +139,7 @@ EMAIL_USE_SSL = config('EMAIL_USE_SSL')
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
-STATIC_URL = '/static/'
+
 
 #STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
@@ -148,6 +149,8 @@ LOGOUT_REDIRECT_URL = '/'
 
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_URL = '/static/'
+django_heroku.settings(locals())
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
     ]
