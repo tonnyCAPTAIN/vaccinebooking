@@ -37,14 +37,14 @@ form {
     font-weight: 400;
     text-align: center;
     /* Size and position */
-    width: 200px;
-    height: 100%;
+    width: 450px;
+    height: 250%;
     position: relative;
-    margin-top: -70px;
+    margin-top: 70px;
     padding: 40px 40px;
     align-items: center;
     /* Styles */
-    background: hsl(180, 8%, 49%);
+    background: hsl(180, 40%, 81%);
     border-radius: 0.4em;
     border: 1px solid #191919;
     box-shadow: inset 0 0 2px 1px rgba(255, 255, 255, 0.08), 0 16px 10px -8px rgba(0, 0, 0, 0.6);
@@ -213,7 +213,7 @@ input[type=password] {
 .xyz {
     width: 100%;
     padding: 50px 50px;
-    background-color: rgba(128, 143, 117, 0.514);
+    background-color: hsl(180, 40%, 81%);
 }
 
 input[type=text] {
@@ -226,7 +226,7 @@ input[type=text] {
     font-weight: 400;
     width: 100%;
     position: relative;
-    margin: auto;
+    margin-top: 50px;
     padding: 40px 40px;
     overflow: hidden;
     background: rgb(237, 240, 240);
