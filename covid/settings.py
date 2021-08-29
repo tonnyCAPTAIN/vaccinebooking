@@ -126,8 +126,8 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'tonnycaptain7@gmail.com'
 EMAIL_HOST_PASSWORD = 'ycjegnkxjujrlhmv'
 EMAIL_PORT = 587
-EMAIL_USE_TLS = True
-DEBUG = False
+EMAIL_USE_SSL= True
+
 
 
 # Static files (CSS, JavaScript, Images)
