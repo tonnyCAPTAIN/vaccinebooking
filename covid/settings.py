@@ -24,12 +24,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = config('SECRET_KEY')
+SECRET_KEY = 'x&j0kfs+q@yqqt2m@8g0kuo$se$ux=ny1q+_5$4nzsd0*#qel7'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', cast=bool, default=True)
 
-ALLOWED_HOSTS = ['0.0.0.0', 'localhost','127.0.0.1','vaccine-book.herokuapp.com']
+ALLOWED_HOSTS = ['0.0.0.0', 'localhost','127.0.0.1','https://vaccine-book.herokuapp.com']
 
 
 # Application definition
@@ -78,17 +78,11 @@ WSGI_APPLICATION = 'covid.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
-
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': config('DB_NAME'),
-        'USER': config('DB_USER'),
-        'PASSWORD': config('DB_PASSWORD'),
-        'HOST': config('DB_HOST'),
-        'PORT': '',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
-    
 }
 
 
