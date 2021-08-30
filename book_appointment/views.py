@@ -6,6 +6,7 @@ from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.http import HttpResponseRedirect
+import random
 
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import login, authenticate, logout as auth_logout 
@@ -96,7 +97,8 @@ def signup(request):
 
 @login_required(login_url='login')
 def book(request):
-    
+    doctors = Doctor.objects.all()
+    doc = (random.choice(doctors))
     if request.method == 'POST':
         
         form = BookForm(request.POST)
@@ -111,7 +113,7 @@ def book(request):
                 
                 dat = date.strftime("%Y-%m-%d")
                 print(dat)
-                template = render_to_string('email.html', {'name':request.user.profile.First_name,'dat':dat})
+                template = render_to_string('email.html', {'name':request.user.profile.First_name,'dat':dat, 'doc':doc})
                 email = EmailMessage(
                     'Thanks for booking',
                     template,
@@ -120,7 +122,7 @@ def book(request):
                 )
 
                 email.send(fail_silently = False)
-                email.send()
+                
 
                 messages.success(request, 'Successfully booked')
             else: 
@@ -131,7 +133,7 @@ def book(request):
                 form = BookForm(request.POST, instance=bk)
                 form.save()
 
-                template = render_to_string('email.html', {'name':request.user.profile.First_name,'dat':dat})
+                template = render_to_string('email.html', {'name':request.user.profile.First_name,'dat':dat, 'doc':doc})
                 email = EmailMessage(
                     'Thanks for booking',
                     template,
@@ -140,7 +142,7 @@ def book(request):
                 )
 
                 email.send(fail_silently = False)
-                email.send()
+                
 
                 messages.info(request, 'succesfully Updated' )
                 
@@ -200,8 +202,8 @@ def profile(request):
 
 def give_vac(request):  
     doctors = Doctor.objects.all()
-    lsts = Profile.objects.all()
-    clusters = [lsts[person_id:person_id+3] for person_id in range(0, len(lsts), 3)]
+    # lasts = Profile.objects.all()
+    # clusters = [lsts[person_id:person_id+3] for person_id in range(0, len(lsts), 3)]
     # print (clusters)
     docs = [doctors[id:id+4] for id in range(0, len(doctors), 4)]
     print(docs)

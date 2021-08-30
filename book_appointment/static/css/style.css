@@ -188,8 +188,9 @@ input[type=password] {
                         
                         .xyz {
                             width: 100%;
-                            padding: 50px 50px;
-                            background-color: hsl(180, 40%, 81%);
+                            /* height: 100px; */
+                            padding: 20px 50px;
+                            background-color: hsl(180, 33%, 52%);
                         }
                         
                         input[type=text] {
@@ -226,7 +227,7 @@ input[type=password] {
                             bottom: 0px;
                             left: 0px;
                             /* display: inline-block; */
-                            justify-content: space-evenly;
+                            /* justify-content: space-evenly; */
                             padding: .5em;
                         }
                         
@@ -237,7 +238,7 @@ input[type=password] {
                             position: fixed;
                             background: #444a50;
                             color: rgb(253, 253, 253);
-                            box-shadow: 0 50vh 0 50vh #343a40;
+                            /* box-shadow: 0 50vh 0 50vh #343a40; */
                         }
                         /* footer {
                             grid-area: footer;
