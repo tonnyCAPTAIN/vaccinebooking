@@ -30,6 +30,10 @@ def doctor(request):
     
     return render(request, 'admin.html', context)
 
+def about(request):
+
+    return render( request, 'about.html')
+
 def login(request):
     
     if request.method=='POST':
