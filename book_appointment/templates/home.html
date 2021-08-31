@@ -6,11 +6,11 @@
 
 
 
-<center><h1> WELCOME TO KNH VACCINE BOOKING !!!</h1></center>
+<center><h1> WELCOME TO KNH VACCINE BOOKING !!!</h1></center><br><br><br>
 
 
 {% if user.is_authenticated %}
-    Hi {{ user.username }} Proceed to make your vaccine booking
+    <p> Jambo {{ user.username }}, Check your email for the date booked and doctor to server you. Thank you </p><br><br>
     <a href="{% url 'logout' %}">Log out</a>
 
 

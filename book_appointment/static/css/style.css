@@ -221,6 +221,7 @@ input[type=password] {
                             width: 500px;
                             position: centre;
                             margin-top: 50px;
+                            margin-left: 30%;
                             padding: 10px;
                             background-color: rgb(67, 115, 134);
                         }
@@ -239,10 +240,21 @@ input[type=password] {
                             bottom: 0px;
                             left: 0px;
                             position: fixed;
-                            background: #444a50;
-                            color: rgb(253, 253, 253);
+                            background: #393d41;
+                            color: rgb(24, 23, 23);
                             /* box-shadow: 0 50vh 0 50vh #343a40; */
                         }
                         /* footer {
                             grid-area: footer;
                         } */
+                        
+                        .book-txt {
+                            margin-top: 70%;
+                            position: relative;
+                            left: 50%;
+                        }
+                        
+                        .navbar-light .navbar-nav .nav-link {
+                            font-size: 20px;
+                            color: #FFFFFF;
+                        }

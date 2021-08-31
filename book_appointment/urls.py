@@ -16,5 +16,5 @@ urlpatterns = [
     path('about/', views.about, name ='about'),
     #path("login/", views.login, name="login"),
     path('doctor/', views.doctor, name='doctor'),
-    path('give/', views.give_vac, name='give'),
+    
 ]

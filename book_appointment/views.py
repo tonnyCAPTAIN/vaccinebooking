@@ -46,7 +46,7 @@ def login(request):
 
 
             if user is not None:
-                form = Loginform()
+                form = LoginForm()
                 login(request, user)
 
                 return redirect('profile')
@@ -99,6 +99,8 @@ def signup(request):
 def book(request):
     doctors = Doctor.objects.all()
     doc = (random.choice(doctors))
+    # print(random.choice(doc))
+    
     if request.method == 'POST':
         
         form = BookForm(request.POST)
@@ -200,18 +202,18 @@ def profile(request):
 
     return render(request, 'profile.html', {'form': form})
 
-def give_vac(request):  
-    doctors = Doctor.objects.all()
-    # lasts = Profile.objects.all()
-    # clusters = [lsts[person_id:person_id+3] for person_id in range(0, len(lsts), 3)]
-    # print (clusters)
-    docs = [doctors[id:id+4] for id in range(0, len(doctors), 4)]
-    print(docs)
-    context= {'clusters': clusters,
-                'docs':docs,
-    }
+# def give_vac(request):  
+#     doctors = Doctor.objects.all()
+#     # lasts = Profile.objects.all()
+#     # clusters = [lsts[person_id:person_id+3] for person_id in range(0, len(lsts), 3)]
+#     # print (clusters)
+#     docs = [doctors[id:id+4] for id in range(0, len(doctors), 4)]
+#     print(docs)
+#     context= {'clusters': clusters,
+#                 'docs':docs,
+#     }
 
-    return render(request, 'give_vac.html', context)
+#     return render(request, 'give_vac.html', context)
     
 
 
