@@ -17,16 +17,16 @@ from django.contrib import admin
 from django.urls import path, include
 
 from django.contrib.auth import views as auth_views
-from book_appointment import views as v
+from book_appointment import views 
 from django.conf.urls.static import static
 from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('django.contrib.auth.urls')),
-    path('signup/', v.signup, name='signup'),
+    path('signup/', views.signup, name='signup'),
     # path('login/', v.login, {'template_name': 'registration/login.html'}, name='login'),
-    path('logout/', v.logout, name='logout'),
+    path('logout/', views.logout, name='logout'),
     #path('login/', auth_views.login, {'template_name': 'registration/signup.html'}, name='login'),
     path('', include('book_appointment.urls')),
 

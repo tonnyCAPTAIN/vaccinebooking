@@ -98,7 +98,10 @@ def signup(request):
 @login_required(login_url='login')
 def book(request):
     doctors = Doctor.objects.all()
-    doc = (random.randint(0, len(doctors)-1)
+    d = random.randint(0, len(doctors)-1)
+    doc = doctors[d]
+    print(doc)
+    
     
     
     if request.method == 'POST':
