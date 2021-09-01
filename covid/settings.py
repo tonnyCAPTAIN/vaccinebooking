@@ -27,7 +27,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'x&j0kfs+q@yqqt2m@8g0kuo$se$ux=ny1q+_5$4nzsd0*#qel7'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = config('DEBUG', cast=bool, default=False)
+# DEBUG = config('DEBUG', cast=bool, default=False)
+DEBUG = config('DEBUG')
 
 ALLOWED_HOSTS = ['0.0.0.0', 'localhost','127.0.0.1','https://vaccine-book.herokuapp.com']
 
