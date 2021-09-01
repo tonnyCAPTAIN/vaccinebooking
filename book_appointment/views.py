@@ -100,10 +100,11 @@ def book(request):
     doctors = Doctor.objects.all()
     # d = random.randint(0, len(doctors)-1)
     # doc = doctors[d]
-    
+    doc = random.choice(doctors)
     while True:
         try:
-            doc = random.choice(doctors)
+            print('doc assigned')
+            
         except:
             doc = 'wait'
 
