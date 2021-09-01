@@ -98,8 +98,17 @@ def signup(request):
 @login_required(login_url='login')
 def book(request):
     doctors = Doctor.objects.all()
-    d = random.randint(0, len(doctors)-1)
-    doc = doctors[d]
+    # d = random.randint(0, len(doctors)-1)
+    # doc = doctors[d]
+    
+    while True:
+        try:
+            doc = random.choice(doctors)
+        except:
+            doc = 'wait'
+
+
+
     print(doc)
     
     
