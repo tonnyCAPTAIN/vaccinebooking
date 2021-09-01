@@ -101,12 +101,12 @@ def book(request):
     # d = random.randint(0, len(doctors)-1)
     # doc = doctors[d]
     doc = random.choice(doctors)
-    while True:
-        try:
-            print('doc assigned')
+    # while True:
+    #     try:
+    #         pass
             
-        except:
-            doc = 'wait'
+    #     except:
+    #         doc = 'wait'
 
 
 
