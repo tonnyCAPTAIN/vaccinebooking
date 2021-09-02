@@ -99,9 +99,9 @@ def signup(request):
 def book(request):
     doctors = Doctor.objects.all()
     
-    d = random.randrange(len(doctors))
-    doc = doctors[d]
-
+    # d = random.randrange(len(doctors))
+    # doc = doctors[d]
+    doc = random.choice(doctors)
     print(doc)
     
     
