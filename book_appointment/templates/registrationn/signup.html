@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block titile %}Create your account {% endblock %}
+
+{% block content %}
+{% load crispy_forms_tags %}
+
+
+
+
+<div class="container-fluid">
+      <div class="col-md-6 offset-md-3">
+              <form class="form-2" action="" form method="post">
+                {% csrf_token %}
+
+                {{form|crispy}}
+                
+               
+
+                   <button type="submit" class="btn btn-primary">Signup</button> 
+                  
+                
+                
+              </form>
+      </div>
+</div>
+
+{% if messages %}
+        {% for message in messages %}
+                <div class="alert alert-{{message.tag}}">{{message}}</div>
+
+
+        {% endfor %}
+        {% endif %}
+
+
+{% endblock %}

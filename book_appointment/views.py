@@ -38,38 +38,36 @@ def about(request):
 def login(request):
     
     if request.method=='POST':
-         form = LoginForm(request.POST)
-         if form.is_valid():
-            username = form.cleaned_data.get('username')
-            password = form.cleaned_data.get('password')
-            user = authenticate(username=username, password=password)
+        form = AuthenticationForm(request.POST)
+        if form.is_valid():
+                username = form.cleaned_data.get('username')
+                password = form.cleaned_data.get('password')
+                
+                # username = request.POST['username']
+                # password = request.POST['password']
+
+                user = authenticate(request,username=username, password=password)
 
 
-            if user is not None:
-                form = LoginForm()
-                login(request, user)
+                if user is not None:
+                    # form = LoginForm()
+                    login(request, user)
 
-                return redirect('profile')
-            else:
-                messages.error(request, "Invalid username or password")
+                    return redirect('profile')
+                
+                else:
+                    
+                    messages.error(request, "Invalid username or password")
+        else:
+            messages.error(request, "Invalid username or password")
 
             
 
-    else:
-        form = LoginForm()
     
-    return render(request, 'registration/login.html', )
-#                 messages.info(request, f"You are now logged in as {username}.")
-#                 return redirect("book_appointment:homepage")
-
-#             else:
-#                 messages.error(request, "Invalid username or password.")
-#         else:
-#             messages.error(request, "invalid username or password.")
-
-#     form = AuthenticationForm()
-#     return render(request=request, template_name="registration/login.html", context={"login_form":form})
-        
+        form = AuthenticationForm()
+    
+    return render(request, 'registrationn/login.html', )
+                 
 
 
 def signup(request):
@@ -87,15 +85,16 @@ def signup(request):
             user = authenticate(username=username, password=password)
             user.save()
             #login(user)
-            
-            return redirect('login')
+            messages.success(request, "Registered successfuly.")
+            return redirect('Login')
+        messages.error(request, "Unsuccessful registration. Information is invalid.")
     else:
         form = SignUpForm()
-    return render(request, 'registration/signup.html', {'form': form})
+    return render(request, 'registrationn/signup.html', {'form': form})
 
 
 
-@login_required(login_url='login')
+@login_required(login_url='Login')
 def book(request):
     doctors = Doctor.objects.all()
     
@@ -177,7 +176,7 @@ def book(request):
 
 
 
-@login_required(login_url='login')
+@login_required(login_url='Login')
 def profile(request):
     #form = ProfileForm
     if request.method == 'POST':
@@ -185,22 +184,6 @@ def profile(request):
         if form.is_valid():
             form.save()
         
-            #messages.success(request, 'Your profile has been updated!')
-
-            # data = {
-            #     'firstname':firstname,
-            #     'email': email,
-            #     'subject': subject,
-            #     'message': message
-
-            # }
-            # message = '''
-            # New message:{}
-
-            # From: {}    
-                
-            #     '''.format(data['message'], data['email'])
-            # send_mail(data['subject'], message, '',['tonnycaptain7@gmail.com'])
             return redirect ('/book')
     else:
         form = ProfileForm(instance=request.user.profile)
@@ -227,7 +210,7 @@ def profile(request):
 
 def logout(request):
     auth_logout(request)
-    return redirect('home')
+    return redirect('')
 
 
 

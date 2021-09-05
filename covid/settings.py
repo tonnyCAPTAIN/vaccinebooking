@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    
     'book_appointment',
     'crispy_forms',
 ]
@@ -131,8 +132,10 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'tonnycaptain7@gmail.com'
 EMAIL_HOST_PASSWORD = 'ycjegnkxjujrlhmv'
 EMAIL_PORT = 465
+# EMAIL_PORT = 587
 EMAIL_USE_SSL= True
-
+# EMAIL_USE_TSL = True
+DEFAULT_FROM_EMAIL  = 'tonnycaptain7@gmail.com'
 
 
 # Static files (CSS, JavaScript, Images)
