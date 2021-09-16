@@ -40,33 +40,34 @@ def login(request):
     if request.method=='POST':
         form = AuthenticationForm(request.POST)
         if form.is_valid():
-                username = form.cleaned_data.get('username')
-                password = form.cleaned_data.get('password')
+            username = form.cleaned_data.get('username')
+            password = form.cleaned_data.get('password')
                 
                 # username = request.POST['username']
                 # password = request.POST['password']
 
-                user = authenticate(request,username=username, password=password)
+            user = authenticate(request,username=username, password=password)
 
 
-                if user is not None:
+            if user is not None:
                     # form = LoginForm()
-                    login(request, user)
+                login(request, user)
 
-                    return redirect('profile')
+                return redirect('profile')
                 
                 # else:
-                    
+                #     form = AuthenticationForm()
                 #     messages.error(request, "Invalid username or password")
-        else:
-            messages.error(request, "Invalid username or password")
+            else:
+                messages.error(request, "Invalid username or password")
 
             
 
     
+    else:
         form = AuthenticationForm()
     
-    return render(request, 'registrationn/login.html', )
+    return render(request, 'registration/login.html', {"form":form})
                  
 
 
@@ -86,15 +87,15 @@ def signup(request):
             user.save()
             #login(user)
             messages.success(request, "Registered successfuly.")
-            return redirect('Login')
+            return redirect('login')
         messages.error(request, "Unsuccessful registration. Information is invalid.")
     else:
         form = SignUpForm()
-    return render(request, 'registrationn/signup.html', {'form': form})
+    return render(request, 'registration/signup.html', {'form': form})
 
 
 
-@login_required(login_url='Login')
+@login_required(login_url='login')
 def book(request):
     doctors = Doctor.objects.all()
     
@@ -127,14 +128,14 @@ def book(request):
                     [request.user.profile.Email],
                 )
 
-                email.send(fail_silently = False)
+                email.send()
                 
 
                 messages.success(request, 'Successfully booked')
             else: 
                 print(date)
 
-                dat = date.strftime("%Y-%m-%d")
+                dat = date.strftime('%b %d %Y')
                 bk = Book.objects.get(person_id = request.user.id)#.values('date')
                 form = BookForm(request.POST, instance=bk)
                 form.save()
@@ -147,10 +148,10 @@ def book(request):
                     [request.user.profile.Email],
                 )
 
-                email.send(fail_silently = False)
+                email.send()
                 
 
-                messages.info(request, 'succesfully Updated' )
+                messages.success(request, 'succesfully Updated' )
                 
                
                 {'form': form}
@@ -176,7 +177,7 @@ def book(request):
 
 
 
-@login_required(login_url='Login')
+@login_required(login_url='login')
 def profile(request):
     #form = ProfileForm
     if request.method == 'POST':

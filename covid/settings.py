@@ -14,6 +14,8 @@ from pathlib import Path
 
 import os
 import django_heroku
+import smtplib, ssl
+
 
 from decouple import config, Csv
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -36,6 +38,8 @@ ALLOWED_HOSTS = ['0.0.0.0', 'localhost','127.0.0.1','https://vaccine-book.heroku
 # Application definition
 
 INSTALLED_APPS = [
+
+    'book_appointment',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -43,7 +47,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     
-    'book_appointment',
+    
     'crispy_forms',
 ]
 
@@ -83,10 +87,10 @@ WSGI_APPLICATION = 'covid.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'da03vr67i8874o',
-        'USER': 'xbitlwqepxecvb',
-        'PASSWORD': '8589161a58e4e6c908e3d534c3e7cff63cb5f96e0e0ed701a07a0ddbafddbf12',
-        'HOST': 'ec2-35-174-56-18.compute-1.amazonaws.com',
+        'NAME': 'corona',
+        'USER': 'cap',
+        'PASSWORD': 'toNNY123@',
+        'HOST': 'localhost',
         'PORT': '5432',
     }
 }
@@ -130,12 +134,12 @@ USE_TZ = True
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'tonnycaptain7@gmail.com'
-EMAIL_HOST_PASSWORD = 'ycjegnkxjujrlhmv'
+EMAIL_HOST_PASSWORD = 'zfozgyoftuybpwjt'
 EMAIL_PORT = 465
 # EMAIL_PORT = 587
 EMAIL_USE_SSL= True
 # EMAIL_USE_TSL = True
-DEFAULT_FROM_EMAIL  = 'tonnycaptain7@gmail.com'
+# DEFAULT_FROM_EMAIL  = 'tonnycaptain7@gmail.com'
 
 
 # Static files (CSS, JavaScript, Images)
@@ -160,6 +164,11 @@ STATICFILES_DIRS = [
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True
+SESSION_COOKIE_AGE = 360
+SESSION_SAVE_EVERY_REQUEST = True
 
 
 
