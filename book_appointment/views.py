@@ -11,9 +11,9 @@ import random
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import login, authenticate, logout as auth_logout 
 from django.contrib.auth.decorators import login_required, user_passes_test
-from .forms import BookForm
-from book_appointment.forms import SignUpForm, BookForm, ProfileForm
-from .models import Book, Doctor, Profile
+
+from book_appointment.forms import SignUpForm, BookForm, ProfileForm, VenueForm, Book_SecondForm
+from .models import Book, Doctor, Profile, Venue, Book_second
 from django.core.mail import  send_mail, EmailMessage
 from django.conf import settings
 from django.template.loader import render_to_string
@@ -104,13 +104,15 @@ def book(request):
     doc = random.choice(doctors)
     print(doc)
     
-    
-    
+    # ven = list(Venue.objects.filter(person = request.user).values_list('hospital'))[-1]
+    ven =list(Venue.objects.filter(person = request.user).values_list('hospital', flat=True))[-1]
+    print(ven)
     if request.method == 'POST':
         
         form = BookForm(request.POST)
         if form.is_valid():
             date = form.cleaned_data['date']
+            
             
             if len(Book.objects.filter(person_id = request.user.id)) == 0:
                 print(date)
@@ -120,7 +122,7 @@ def book(request):
                 
                 dat = date.strftime("%Y-%m-%d")
                 print(dat)
-                template = render_to_string('email.html', {'name':request.user.profile.First_name,'dat':dat, 'doc':doc})
+                template = render_to_string('email.html', {'name':request.user.profile.First_name,'dat':dat, 'doc':doc, 'ven':ven,})
                 email = EmailMessage(
                     'Thanks for booking',
                     template,
@@ -140,7 +142,7 @@ def book(request):
                 form = BookForm(request.POST, instance=bk)
                 form.save()
 
-                template = render_to_string('email.html', {'name':request.user.profile.First_name,'dat':dat, 'doc':doc})
+                template = render_to_string('email.html', {'name':request.user.profile.First_name,'dat':dat, 'doc':doc, 'ven':ven,})
                 email = EmailMessage(
                     'Thanks for booking',
                     template,
@@ -177,6 +179,96 @@ def book(request):
 
 
 
+
+
+@login_required(login_url='login')
+def book_second(request):
+    doctors = Doctor.objects.all()
+    
+    # d = random.randrange(len(doctors))
+    # doc = doctors[d]
+    doc = random.choice(doctors)
+    print(doc)
+
+    # ven = list(Venue.objects.filter(person = request.user).values_list('hospital'))[-1]
+    ven =list (Venue.objects.filter(person = request.user).values_list('hospital', flat=True))[-1]
+    print(ven)
+    
+    if request.method == 'POST':
+        
+        form = Book_SecondForm(request.POST)
+        if form.is_valid():
+            date = form.cleaned_data['date']
+            
+            if len(Book_second.objects.filter(person_id = request.user.id)) == 0:
+                print(date)
+                instace =form.save(commit = False)
+                instace.person = request.user
+                instace.save()
+                
+                dat = date.strftime("%Y-%m-%d")
+                print(dat)
+                template = render_to_string('email.html', {'name':request.user.profile.First_name,'dat':dat, 'doc':doc, 'ven': ven,})
+                email = EmailMessage(
+                    'Thanks for booking ',
+                    template,
+                    settings.EMAIL_HOST_USER,
+                    [request.user.profile.Email],
+                )
+
+                email.send()
+                
+
+                messages.success(request, 'Successfully booked your second dose')
+            else: 
+                print(date)
+
+                dat = date.strftime('%b %d %Y')
+                bk = Book_second.objects.get(person_id = request.user.id)#.values('date')
+                form = Book_SecondForm(request.POST, instance=bk)
+                form.save()
+
+                template = render_to_string('email.html', {'name':request.user.profile.First_name,'dat':dat, 'doc':doc, 'ven': ven,})
+                email = EmailMessage(
+                    'Thanks for booking',
+                    template,
+                    settings.EMAIL_HOST_USER,
+                    [request.user.profile.Email],
+                )
+
+                email.send()
+                
+
+                messages.success(request, 'succesfully Updated your second dose' )
+                
+               
+                {'form': form}
+
+
+               
+            return render(request, 'book_second.html', {'form': form})
+
+            return redirect('logout')
+                       
+        else:
+
+            return redirect('book_second')
+
+    
+
+    else:
+
+        form = Book_SecondForm()
+    
+        return render(request, 'book_second.html', {'form':form})
+
+
+
+
+
+
+
+
 @login_required(login_url='login')
 def profile(request):
     #form = ProfileForm
@@ -185,24 +277,38 @@ def profile(request):
         if form.is_valid():
             form.save()
         
-            return redirect ('/book')
+            return redirect ('/venue')
     else:
         form = ProfileForm(instance=request.user.profile)
 
     return render(request, 'profile.html', {'form': form})
 
-# def give_vac(request):  
-#     doctors = Doctor.objects.all()
-#     # lasts = Profile.objects.all()
-#     # clusters = [lsts[person_id:person_id+3] for person_id in range(0, len(lsts), 3)]
-#     # print (clusters)
-#     docs = [doctors[id:id+4] for id in range(0, len(doctors), 4)]
-#     print(docs)
-#     context= {'clusters': clusters,
-#                 'docs':docs,
-#     }
 
-#     return render(request, 'give_vac.html', context)
+
+@login_required(login_url='login')
+def venue(request):
+    
+    if request.method == 'POST':
+        
+        form = VenueForm(request.POST)
+        
+        
+        if form.is_valid():
+
+            instace =form.save(commit = False)
+            instace.person = request.user
+            instace.save()    
+                
+            
+            form.save()
+
+            messages.success(request, 'saved succesfully ' )
+        
+            return redirect ('/book')
+    else:
+        form = VenueForm()
+
+    return render(request, 'venue.html', {'form': form})
     
 
 

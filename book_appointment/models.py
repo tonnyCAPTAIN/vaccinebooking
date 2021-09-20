@@ -17,6 +17,10 @@ class Profile(models.Model):
     Email = models.EmailField(max_length= 254)
     #Phone_number = models.IntegerField(blank= True)
     passport = models.ImageField(upload_to='media/images/',height_field=None, width_field=None, null=True, blank=False)
+        
+
+
+
 
 
     def __str__(self):
@@ -39,6 +43,16 @@ class Book(models.Model):
     def __str__ (self):
         return str(self.person)
 
+class Book_second(models.Model):
+
+    person = models.ForeignKey(User,on_delete=models.CASCADE ,default= None)
+
+    date = models.DateField(null=False)
+
+
+    def __str__ (self):
+        return str(self.person)
+
 
 class Doctor(models.Model):
     name = models.CharField(max_length=100, blank=False)
@@ -46,4 +60,23 @@ class Doctor(models.Model):
 
     def __str__(self):
         return str(self.name)
+
+
+class Venue(models.Model):
+
+    HOSPITAL = (
+        ('Kenyatta hsp','KNH-HSP'),
+        ('Mbagathi hsp','MGT-HSP'),
+        ('Pumwani hsp','PMW-HSP'),
+        ('Nairobi hsp','NRB-HSP'),
+        ('Kakamega hsp','KKG-HSP'),
+        ('Aghakan hsp','AG-HSP'),
+
+    )
+    hospital = models.CharField(max_length=30, choices= HOSPITAL, default='NRB')
+
+    person = models.ForeignKey(User,on_delete=models.CASCADE ,default= None)
+
+    def __str__(self):
+        return self.hospital
 

@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
     
-{% block title %} BOOK {% endblock %}
+{% block title %} BOOK SECOND DOSE{% endblock %}
 
 {% block content %} 
 {% load crispy_forms_tags %}
@@ -9,12 +9,13 @@
  {% if user.is_authenticated %} -->
 
 
-<center><h2>First booking</h2></center>
+<center><h2>Second booking</h2></center>
 
 <div class="container-fluid">
 <form  class="form-4" action="" enctype="multipart/form-data" method="POST">
         {% csrf_token %}
         {{ form | crispy}}
+
         <input type="submit" name="submit" value="BOOK">
 
 </form>

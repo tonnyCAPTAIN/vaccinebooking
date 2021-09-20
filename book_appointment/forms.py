@@ -1,7 +1,7 @@
 from datetime import date
 from django import forms
-from django.forms import ModelForm, widgets
-from .models import Book,Profile
+from django.forms import ModelForm, fields, widgets
+from .models import Book,Profile, Venue
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 
@@ -28,11 +28,24 @@ class BookForm(ModelForm):
 
         }
 
+
+class Book_SecondForm(ModelForm):  
+    class Meta:
+        model = Book
+        fields = ['date'] 
+
+        widgets= {
+            'date': DateInput(),
+
+        }
+
 class ProfileForm(forms.ModelForm):
     class Meta:
         model = Profile
         exclude = ('user',) 
 
 
-# class DateForm(forms.Form):
-#     date = forms.DateTimeField(input_formats=['%d/%m/%/Y %H:M'])
+class VenueForm(forms.ModelForm):
+    class Meta:
+        model = Venue
+        fields = ('hospital',)
