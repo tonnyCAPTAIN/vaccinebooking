@@ -69,8 +69,11 @@ hello {{ user.username}},
 <button><a href="{% url  'book_appointment:profile_edit' user.id  %}">edit profile</a></button><br><br><br><br>
 
 
-<button><a href="{% url 'book_appointment:book' %}">book appointment</a></button><br><br><br><br>
-<button><a href="{% url 'book_appointment:venue' %}">venue</a></button>
+<button><a href="{% url 'book_appointment:venue' %}">venue</a></button></button><br><br><br><br>
+
+<button><a href="{% url 'book_appointment:book' %}">book appointment</a>
+
+
 
 {% else %}
 
