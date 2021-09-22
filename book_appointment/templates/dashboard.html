@@ -1,0 +1,102 @@
+{% extends 'base.html' %}
+
+{% block title %} about page{% endblock %}
+
+{% block content %} 
+
+
+
+<center><h1> DASHBOARD </h1></center>
+
+
+
+{% if request.user.is_authenticated %}
+
+hello {{ user.username}},
+
+{% comment %} {% for user in prof %} {% endcomment %}
+
+
+<table class="table table-borderless">
+	<thead class="border-bottom font-weight-bold">
+		<tr>
+		<td>First_name</td>
+		<td>Middle_name</td>
+		<td>Last_name</td>
+		<td>Occupation</td>
+		<td>Email</td>
+		<td>passport</td>
+		{% comment %} <td></td>
+			<a href="{% url 'employee_insert' %}" class="btn btn-outline-success">
+			<i class="fas fa-plus"></i> Add New
+			</a> {% endcomment %}
+
+		</tr>
+	
+	</thead>
+
+	<tbody>
+		{% for user in prof %}
+			<tr>
+			<td>{{user.First_name}}</td>
+			<td>{{user.Middle_name}}</td>
+			<td>{{user.Last_name}}</td>
+			<td>{{user.Occupation}}</td>
+			<td>{{user.Email}}</td>
+			<td>{{user.passport}}</td>
+			<td>
+				{% comment %} <a href="{% url 'profile_edit'  %}" class="btn text-secondary px-0">
+					<i class="far fa-edit fa-lg"></i>
+				
+				</a> {% endcomment %}
+				{% comment %} <form action="{% url 'employee_delete' employee.id %}" method="post" class="d-inline">
+					{% csrf_token %}
+					<button type="submit" class="btn">
+					<i class="far fa-trash-alt fa-lg text-danger float-right"></i>
+					
+					</button>
+				
+				</form> {% endcomment %}
+			
+			</td>
+			
+			</tr>
+
+		{% endfor %}
+	</tbody>
+
+</table>
+<button><a href="{% url  'book_appointment:profile_edit' user.id  %}">edit profile</a></button><br><br><br><br>
+
+
+<button><a href="{% url 'book_appointment:book' %}">book appointment</a></button><br><br><br><br>
+<button><a href="{% url 'book_appointment:venue' %}">venue</a></button>
+
+{% else %}
+
+login
+
+{% endif %}
+
+{% comment %} 
+{% for user in users %}
+
+<table>
+    <tr>
+    <td>{{ user.First_name} }</td>
+    <td>{{ user.Middle_name }}</td>
+    <td>{{ user.Last_name }}</td>
+    <td>{{ user.Occupation }}</td>
+    <td>{{ user.Email }}</td>
+    <td>{{user.Passport}}</td>
+    
+    
+    </tr>
+    
+    </table>
+
+{% endfor %}
+
+    <a href="{% url  book_appointment 'profile_edit/<int:id>/' %}">Edit Profile</a>  {% endcomment %}
+
+{% endblock content %}

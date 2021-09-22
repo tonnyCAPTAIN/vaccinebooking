@@ -87,10 +87,10 @@ WSGI_APPLICATION = 'covid.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'da03vr67i8874o',
-        'USER': 'xbitlwqepxecvb',
-        'PASSWORD': '8589161a58e4e6c908e3d534c3e7cff63cb5f96e0e0ed701a07a0ddbafddbf12',
-        'HOST': 'ec2-35-174-56-18.compute-1.amazonaws.com',
+        'NAME': 'corona',
+        'USER': 'cap',
+        'PASSWORD': 'toNNY123@',
+        'HOST': 'localhost',
         'PORT': 5432
     }
 }
@@ -149,7 +149,7 @@ EMAIL_USE_SSL= True
 
 #STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
-LOGIN_REDIRECT_URL = '/profile/'
+LOGIN_REDIRECT_URL = '/dashboard/'
 
 LOGOUT_REDIRECT_URL = '/'
 

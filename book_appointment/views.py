@@ -19,8 +19,11 @@ from django.conf import settings
 from django.template.loader import render_to_string
 
 def homepage(request):
+
+    user = User.objects.all()
+    context = {'user':user}
     
-    return render(request, 'home.html')
+    return render(request, 'home.html', context)
 
 
 @user_passes_test(lambda u: u.is_superuser)
@@ -53,7 +56,7 @@ def login(request):
                     # form = LoginForm()
                 login(request, user)
 
-                return redirect('profile')
+                return redirect('/dashboard')
                 
                 # else:
                 #     form = AuthenticationForm()
@@ -73,7 +76,7 @@ def login(request):
 
 def signup(request):
     if request.method == 'POST':
-        form = SignUpForm(request.POST)
+        form = UserCreationForm(request.POST)
         if form.is_valid():
             form.save()
             
@@ -270,8 +273,8 @@ def book_second(request):
 
 
 @login_required(login_url='login')
-def profile(request):
-    #form = ProfileForm
+def profile(request, id):
+    
     if request.method == 'POST':
         form = ProfileForm(request.POST, files=request.FILES, instance = request.user.profile,)
         if form.is_valid():
@@ -311,6 +314,34 @@ def venue(request):
     return render(request, 'venue.html', {'form': form})
     
 
+
+
+def profile_edit(request, id):
+    if request.method == "GET":
+        
+        user = User.objects.get(pk=id)
+        form = ProfileForm(instance=user)
+        if form.is_valid():
+                form.save()
+
+                return redirect('/venue')
+
+
+        return render (request, 'profile_edit.html', {'form':form})
+
+
+def dashboard(request):
+
+    prof = Profile.objects.filter(id=request.user.id)
+    print (prof)
+
+    context = {'prof':prof}
+
+     
+    return render(request, 'dashboard.html', context)
+
+
+    
 
 
 

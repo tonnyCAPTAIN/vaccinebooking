@@ -9,10 +9,11 @@
 
 
 
-<!-- <link href="{% static 'js/jquery-ui-1.12.1/jquery-ui.min.css' %}" rel="stylesheet">
-<link href="{% static 'js/jquery-ui-1.12.1/jquery-ui.structure.min.css' %}" rel="stylesheet">
-<link href="{% static 'js/jquery-ui-1.12.1/jquery-ui.theme.min.css' %}" rel="stylesheet">
-  -->
+
+
+
+
+
     <title> {% block title %} {% endblock %}</title>
 </head>
 <body>
@@ -30,17 +31,20 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item active">
-              <a class="nav-link text-white" href="{% url 'logout' %}">logout</a>
+              <a class="nav-link text-white" href="{% url 'book_appointment:dashboard' %}">dashboard</a>
             </li>
             <li class="nav-item">
               <a class="nav-link text-white" href="{% url 'password_change' %}">change password</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-white" href="{% url 'book_appointment:book' %}">First Dose</a>
+              <a class="nav-link text-white" href="{% url 'book_appointment:book' %}">1st Dose</a>
             </li>
 
              <li class="nav-item">
-              <a class="nav-link text-white" href="{% url 'book_appointment:book_second' %}">Second Dose</a>
+              <a class="nav-link text-white" href="{% url 'book_appointment:book_second' %}">2nd Dose</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white" href="{% url 'logout' %}">logout</a>
             </li>
 
      

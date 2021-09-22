@@ -13,6 +13,22 @@
     <p> Jambo {{ user.username }}, Check your email for the date booked and doctor to server you. Thank you </p><br><br>
     <a href="{% url 'logout' %}">Log out</a>
 
+    {% comment %} <table>
+    <tr>
+    <td>{{ user.First_name} }</td>
+    <td>{{ user.Middle_name }}</td>
+    <td>{{ user.Last_name }}</td>
+    <td>{{ user.Occupation }}</td>
+    <td>{{ user.Email }}</td>
+    <td>{{user.Passport}}</td>
+    
+    
+    </tr>
+    
+    </table>
+
+    <a href="{% url  book_appointment 'profile_edit/<int:id>/' %}">Edit Profile</a> {% endcomment %}
+
 
 
 

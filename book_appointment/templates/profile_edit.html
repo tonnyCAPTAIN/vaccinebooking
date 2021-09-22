@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+    
+{% block title %} profile {% endblock %}
+
+{% block content %} 
+{% load crispy_forms_tags %}
+
+<div class="container-fluid">
+    <div class="col-md-6 offset-md-3">
+
+        <form class="xyz" action=""  enctype="multipart/form-data"  method="post">
+
+        {% csrf_token %}
+        <div class="form-group">
+            <!-- {{ form.media }} -->
+            {{ form | crispy}}
+        </div>
+        
+
+        <button type="submit"> Save </button>
+
+        </form>  
+
+    
+        
+    </div>
+
+</div>
+        
+
+{% endblock %}

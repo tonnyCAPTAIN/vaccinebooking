@@ -9,7 +9,7 @@ from django.contrib.auth.forms import UserCreationForm
 
 class SignUpForm(UserCreationForm):
     #birthdate = forms.DateField(help_text='Required. Format: YYYY-MM-DD')
-
+    
 
     class Meta:
         model = User
