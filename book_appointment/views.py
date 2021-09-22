@@ -141,7 +141,7 @@ def book(request):
                 print(date)
 
                 dat = date.strftime('%b %d %Y')
-                bk = Book.objects.get(person_id = request.user.id)#.values('date')
+                bk = Book.objects.filter(person_id = request.user.id)#.values('date')
                 bk.delete()
                 form = BookForm(request.user)
                 if form.is_valid():
@@ -229,7 +229,7 @@ def book_second(request):
                 print(date)
 
                 dat = date.strftime('%b %d %Y')
-                bk = Book_second.objects.get(person_id = request.user.id)#.values('date')
+                bk = Book_second.objects.filter(person_id = request.user.id)#.values('date')
                 bk.delete()
                 form = Book_SecondForm(request.user)
                 if form.is_valid():
