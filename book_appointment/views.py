@@ -142,27 +142,26 @@ def book(request):
 
                 dat = date.strftime('%b %d %Y')
                 bk = Book.objects.get(person_id = request.user.id)#.values('date')
-                bk.delete()
-                form = BookForm()
-                if form.is_valid():
-                    form.save()
+                form = BookForm(request.POST, instance=bk)
+                
+                form.save()
 
-                    template = render_to_string('email.html', {'name':request.user.profile.First_name,'dat':dat, 'doc':doc, 'ven':ven,})
-                    email = EmailMessage(
-                        'Thanks for updating your first dose',
+                template = render_to_string('email.html', {'name':request.user.profile.First_name,'dat':dat, 'doc':doc, 'ven':ven,})
+                email = EmailMessage(
+                        'Thanks for booking your first dose',
                         template,
                         settings.EMAIL_HOST_USER,
                         [request.user.profile.Email],
                     )
 
-                    email.send()
+                email.send()
                     
 
-                    messages.success(request, 'succesfully Updated' )
+                messages.success(request, 'succesfully Updated' )
                     
                 
-                    {'form': form}
-
+                {'form': form}
+    
 
                
             return render(request, 'book.html', {'form': form})
@@ -230,26 +229,25 @@ def book_second(request):
 
                 dat = date.strftime('%b %d %Y')
                 bk = Book_second.objects.get(person_id = request.user.id)#.values('date')
-                bk.delete()
-                form = Book_SecondForm(request.user)
-                if form.is_valid():
-                    form.save()
+                form = Book_SecondForm(request.POST, instance=bk)
+                form.save
+                
 
-                    template = render_to_string('email.html', {'name':request.user.profile.First_name,'dat':dat, 'doc':doc, 'ven': ven,})
-                    email = EmailMessage(
-                        'Thanks for booking your second dose',
+                template = render_to_string('email.html', {'name':request.user.profile.First_name,'dat':dat, 'doc':doc, 'ven': ven,})
+                email = EmailMessage(
+                        'Thanks for  booking your second dose',
                         template,
                         settings.EMAIL_HOST_USER,
                         [request.user.profile.Email],
                     )
 
-                    email.send()
+                email.send()
                     
 
-                    messages.success(request, 'succesfully Updated your second dose' )
+                messages.success(request, 'succesfully Updated your second dose' )
                     
                 
-                    {'form': form}
+                {'form': form}
 
 
                
