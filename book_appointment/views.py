@@ -326,7 +326,7 @@ def profile_edit(request, id):
         if form.is_valid():
                 form.save()
 
-                return redirect('/venue')
+                return redirect('/dashboard')
 
 
         return render (request, 'profile_edit.html', {'form':form})
