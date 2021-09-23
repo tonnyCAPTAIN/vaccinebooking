@@ -149,7 +149,7 @@ def book(request):
 
                     template = render_to_string('email.html', {'name':request.user.profile.First_name,'dat':dat, 'doc':doc, 'ven':ven,})
                     email = EmailMessage(
-                        'Thanks for booking your first dose',
+                        'Thanks for updating your first dose',
                         template,
                         settings.EMAIL_HOST_USER,
                         [request.user.profile.Email],
