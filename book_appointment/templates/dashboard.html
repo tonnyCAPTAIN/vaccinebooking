@@ -15,7 +15,7 @@
 hello {{ user.username}},
 
 
-<table class="table bg-white">
+{% comment %} <table class="table bg-white">
                     <thead class="bg-info">
                         <tr class="text-white">
                            
@@ -41,7 +41,46 @@ hello {{ user.username}},
                         
                         {% endfor %}
                     </tbody>
-                </table>
+                </table> {% endcomment %}
+
+
+
+ <div class="col-md-8">
+                    <table class="table table-borderless">
+                        <thead>
+                            <span class="h4">Porfile Information</span class="h4">
+                            <a class="btn btn-info btn-sm float-right" href="{% url 'book_appointment:profile_edit' user.id %}">Edit</a>
+                            <hr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row"> first Name</th>
+                                <td>{{user.First_name}}</td>
+                            </tr>
+                            
+                            <tr>
+                                <th scope="row"> Middle Name</th>
+                                <td>{{user.Middle_name}}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row"> Last Name</th>
+                                <td>{{user.Last_name}}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Ocupation</th>
+                                <td>{{user.Occupation}}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Email</th>
+                                <td>{{ user.email }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="col-md-4">
+                    <img class="img-thumbnail" src="{{ user.passport.image.url }}" alt="profile-image">
+                </div>
 
 
 <button><a href="{% url  'book_appointment:profile_edit' user.id  %}">edit profile</a></button><br><br><br><br>
