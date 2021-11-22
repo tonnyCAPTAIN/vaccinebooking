@@ -14,58 +14,36 @@
 
 hello {{ user.username}},
 
-{% comment %} {% for user in prof %} {% endcomment %}
 
-
-<table class="table table-borderless">
-	<thead class="border-bottom font-weight-bold">
-		<tr>
-		<td>First_name</td>
-		<td>Middle_name</td>
-		<td>Last_name</td>
-		<td>Occupation</td>
-		<td>Email</td>
-		<td>passport</td>
-		{% comment %} <td></td>
-			<a href="{% url 'employee_insert' %}" class="btn btn-outline-success">
-			<i class="fas fa-plus"></i> Add New
-			</a> {% endcomment %}
-
-		</tr>
-	
-	</thead>
-
-	<tbody>
-		{% for user in prof %}
-			<tr>
-			<td>{{user.First_name}}</td>
+<table class="table bg-white">
+                    <thead class="bg-info">
+                        <tr class="text-white">
+                           
+                            <th scope="col">First name</th>
+                            <th scope="col">Middle name</th>
+                            <th scope="col">Last name</th>
+                            <th scope="col">Occupation</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Passport</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for user in prof %}
+                        <tr>
+                           
+                          <td>{{user.First_name}}</td>
 			<td>{{user.Middle_name}}</td>
 			<td>{{user.Last_name}}</td>
 			<td>{{user.Occupation}}</td>
 			<td>{{user.Email}}</td>
 			<td>{{user.passport}}</td>
-			<td>
-				{% comment %} <a href="{% url 'profile_edit'  %}" class="btn text-secondary px-0">
-					<i class="far fa-edit fa-lg"></i>
-				
-				</a> {% endcomment %}
-				{% comment %} <form action="{% url 'employee_delete' employee.id %}" method="post" class="d-inline">
-					{% csrf_token %}
-					<button type="submit" class="btn">
-					<i class="far fa-trash-alt fa-lg text-danger float-right"></i>
-					
-					</button>
-				
-				</form> {% endcomment %}
-			
-			</td>
-			
-			</tr>
+                        </tr>
+                        
+                        {% endfor %}
+                    </tbody>
+                </table>
 
-		{% endfor %}
-	</tbody>
 
-</table>
 <button><a href="{% url  'book_appointment:profile_edit' user.id  %}">edit profile</a></button><br><br><br><br>
 
 
