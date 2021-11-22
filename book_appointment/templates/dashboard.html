@@ -47,28 +47,32 @@ hello {{ user.username}},
 
  <div class="col-md-8">
                     <table class="table table-borderless">
+
+		     {% for user in prof %}
                         <thead>
                             <span class="h4">Porfile Information</span class="h4">
                             <a class="btn btn-info btn-sm float-right" href="{% url 'book_appointment:profile_edit' user.id %}">Edit</a>
                             <hr>
                         </thead>
                         <tbody>
+
+			
                             <tr>
-                                <th scope="row"> first Name</th>
+                                <th scope="row">first Name</th>
                                 <td>{{user.First_name}}</td>
                             </tr>
                             
                             <tr>
-                                <th scope="row"> Middle Name</th>
-                                <td>{{user.Middle_name}}</td>
+                                <th scope="row">Middle Name</th>
+                                <td>{{ user.Middle_name }}</td>
                             </tr>
                             <tr>
-                                <th scope="row"> Last Name</th>
-                                <td>{{user.Last_name}}</td>
+                                <th scope="row">Last Name</th>
+                                <td>{{ user.Last_name }}</td>
                             </tr>
                             <tr>
                                 <th scope="row">Ocupation</th>
-                                <td>{{user.Occupation}}</td>
+                                <td>{{ user.Occupation }}</td>
                             </tr>
                             <tr>
                                 <th scope="row">Email</th>
@@ -76,6 +80,8 @@ hello {{ user.username}},
                             </tr>
                         </tbody>
                     </table>
+
+		     {% endfor %}
                 </div>
                 
                 <div class="col-md-4">
