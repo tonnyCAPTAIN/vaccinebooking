@@ -159,7 +159,7 @@
                                                 }
                                                 
                                                 footer {
-                                                    margin-top: auto;
+                                                    /* margin-top: auto; */
                                                     right: 0px;
                                                     bottom: 0px;
                                                     left: 0px;
@@ -169,6 +169,7 @@
                                                 }
                                                 
                                                 body {
+                                                    min-height: 100vh;
                                                     display: flex;
                                                     flex-direction: column;
                                                     background: rgb(230, 227, 227);
