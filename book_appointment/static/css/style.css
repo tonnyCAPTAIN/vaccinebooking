@@ -157,17 +157,18 @@
                                                     justify-content: center;
                                                     background: rgb(179, 156, 184);
                                                 }
-                                                /* footer {
+                                                
+                                                footer {
+                                                    position: relative;
                                                     right: 0px;
                                                     bottom: 0px;
                                                     left: 0px;
                                                     bottom: 0;
                                                     background: #68d8ec;
                                                     color: rgb(24, 23, 23);
-                                                } */
+                                                }
                                                 
                                                 body {
-                                                    margin-bottom: 60px;
                                                     min-height: 100vh;
                                                     display: flex;
                                                     flex-direction: column;
@@ -177,13 +178,4 @@
                                                 html {
                                                     position: relative;
                                                     height: 100%;
-                                                }
-                                                
-                                                .container {
-                                                    right: 0px;
-                                                    bottom: 0px;
-                                                    left: 0px;
-                                                    bottom: 0;
-                                                    background: #68d8ec;
-                                                    color: rgb(24, 23, 23)
                                                 }
