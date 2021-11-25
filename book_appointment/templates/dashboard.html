@@ -12,7 +12,7 @@
 
 {% if request.user.is_authenticated %}
 
-hello {{ user.username}},
+hello {{ user.username}}, <br><br>
 
 
 {% comment %} <table class="table bg-white">
@@ -50,7 +50,7 @@ hello {{ user.username}},
 
 		     {% for user in prof %}
                         <thead>
-                            <span class="h4">Porfile Information</span class="h4">
+                            <span class="h4">Profile Information</span class="h4">
                             <a class="btn btn-info btn-sm float-right" href="{% url 'book_appointment:profile_edit' user.id %}">Edit</a>
                             <hr>
                         </thead>
@@ -92,9 +92,9 @@ hello {{ user.username}},
 {% comment %} <button><a href="{% url  'book_appointment:profile_edit' user.id  %}">edit profile</a></button><br><br><br><br> {% endcomment %}
 
 
-<button><a href="{% url 'book_appointment:venue' %}">venue</a></button></button><br><br><br><br>
+<a class="btn btn-primary" href="{% url 'book_appointment:venue' %}" role="button">venue</a><br><br><br><br>
 
-<button><a href="{% url 'book_appointment:book' %}">book appointment</a>
+<a class="btn btn-primary" href="{% url 'book_appointment:book' %}" role="button">book appointment</a>
 
 
 
