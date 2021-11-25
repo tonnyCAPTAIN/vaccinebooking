@@ -157,16 +157,14 @@
                                                     justify-content: center;
                                                     background: rgb(179, 156, 184);
                                                 }
-                                                
-                                                footer {
-                                                    /* margin-top: auto; */
+                                                /* footer {
                                                     right: 0px;
                                                     bottom: 0px;
                                                     left: 0px;
                                                     bottom: 0;
                                                     background: #68d8ec;
                                                     color: rgb(24, 23, 23);
-                                                }
+                                                } */
                                                 
                                                 body {
                                                     margin-bottom: 60px;
@@ -179,4 +177,13 @@
                                                 html {
                                                     position: relative;
                                                     height: 100%;
+                                                }
+                                                
+                                                .container {
+                                                    right: 0px;
+                                                    bottom: 0px;
+                                                    left: 0px;
+                                                    bottom: 0;
+                                                    background: #68d8ec;
+                                                    color: rgb(24, 23, 23)
                                                 }
