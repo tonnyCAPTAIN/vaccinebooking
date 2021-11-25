@@ -8,6 +8,7 @@ from django.contrib import messages
 from django.http import HttpResponseRedirect
 import random
 
+from .forms import SignUpForm
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import login, authenticate, logout as auth_logout 
 from django.contrib.auth.decorators import login_required, user_passes_test
@@ -76,7 +77,7 @@ def login(request):
 
 def signup(request):
     if request.method == 'POST':
-        form = UserCreationForm(request.POST)
+        form = SignUpForm(request.POST)
         if form.is_valid():
             form.save()
             
@@ -89,7 +90,7 @@ def signup(request):
             user = authenticate(username=username, password=password)
             user.save()
             #login(user)
-            messages.success(request, "Registered successfuly.")
+            messages.success(request, f'{username} Registered successfuly.')
             return redirect('login')
         messages.error(request, "Unsuccessful registration. Information is invalid.")
     else:

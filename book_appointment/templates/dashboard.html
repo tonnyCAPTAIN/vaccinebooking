@@ -89,7 +89,7 @@ hello {{ user.username}},
                 </div>
 
 
-<button><a href="{% url  'book_appointment:profile_edit' user.id  %}">edit profile</a></button><br><br><br><br>
+{% comment %} <button><a href="{% url  'book_appointment:profile_edit' user.id  %}">edit profile</a></button><br><br><br><br> {% endcomment %}
 
 
 <button><a href="{% url 'book_appointment:venue' %}">venue</a></button></button><br><br><br><br>
