@@ -169,6 +169,7 @@
                                                 }
                                                 
                                                 body {
+                                                    margin-bottom: 60px;
                                                     min-height: 100vh;
                                                     display: flex;
                                                     flex-direction: column;
@@ -176,5 +177,6 @@
                                                 }
                                                 
                                                 html {
+                                                    position: relative;
                                                     height: 100%;
                                                 }
