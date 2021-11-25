@@ -159,23 +159,22 @@
                                                 }
                                                 
                                                 footer {
-                                                    position: relative;
-                                                    right: 0px;
-                                                    bottom: 0px;
-                                                    left: 0px;
+                                                    position: absolute;
                                                     bottom: 0;
+                                                    width: 100%;
+                                                    height: 60px;
                                                     background: #68d8ec;
                                                     color: rgb(24, 23, 23);
                                                 }
                                                 
                                                 body {
                                                     min-height: 100vh;
-                                                    display: flex;
-                                                    flex-direction: column;
+                                                    position: relative;
+                                                    margin: 0;
+                                                    padding-bottom: 100px;
                                                     background: rgb(230, 227, 227);
                                                 }
                                                 
                                                 html {
-                                                    position: relative;
                                                     height: 100%;
                                                 }
