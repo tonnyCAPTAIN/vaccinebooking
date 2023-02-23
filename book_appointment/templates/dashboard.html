@@ -12,46 +12,18 @@
 
 {% if request.user.is_authenticated %}
 
-hello {{ user.username}}, <br><br>
-
-
-{% comment %} <table class="table bg-white">
-                    <thead class="bg-info">
-                        <tr class="text-white">
-                           
-                            <th scope="col">First name</th>
-                            <th scope="col">Middle name</th>
-                            <th scope="col">Last name</th>
-                            <th scope="col">Occupation</th>
-                            <th scope="col">Email</th>
-                            <th scope="col">Passport</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    {% for user in prof %}
-                        <tr>
-                           
-                          <td>{{user.First_name}}</td>
-			<td>{{user.Middle_name}}</td>
-			<td>{{user.Last_name}}</td>
-			<td>{{user.Occupation}}</td>
-			<td>{{user.Email}}</td>
-			<td>{{user.passport}}</td>
-                        </tr>
-                        
-                        {% endfor %}
-                    </tbody>
-                </table> {% endcomment %}
+hello {{ user.username}},, <br><br>
 
 
 
+<div class="profileinfo">
  <div class="col-md-8">
                     <table class="table table-borderless">
 
-		     {% for user in prof %}
+		     {% comment %} {% for user in prof %} {% endcomment %}
                         <thead>
                             <span class="h4">Profile Information</span class="h4">
-                            <a class="btn btn-info btn-sm float-right" href="{% url 'book_appointment:profile_edit' user.id %}">Edit</a>
+                            {% comment %} <a class="btn btn-info btn-sm float-right" href="{% url 'book_appointment:profile_edit' user.id %}">Edit</a> {% endcomment %}
                             <hr>
                         </thead>
                         <tbody>
@@ -59,29 +31,31 @@ hello {{ user.username}}, <br><br>
 			
                             <tr>
                                 <th scope="row">first Name</th>
-                                <td>{{user.First_name}}</td>
+                                <td>{{ user.profile.First_name }}</td>
                             </tr>
                             
                             <tr>
                                 <th scope="row">Middle Name</th>
-                                <td>{{ user.Middle_name }}</td>
+                                <td>{{ user.profile.Middle_name }}</td>
                             </tr>
                             <tr>
                                 <th scope="row">Last Name</th>
-                                <td>{{ user.Last_name }}</td>
+                                <td>{{ user.profile.Last_name }}</td>
                             </tr>
                             <tr>
                                 <th scope="row">Ocupation</th>
-                                <td>{{ user.Occupation }}</td>
+                                <td>{{ user.profile.Occupation }}</td>
                             </tr>
                             <tr>
                                 <th scope="row">Email</th>
-                                <td>{{ user.Email }}</td>
+                                <td>{{ user.profile.Email }}</td>
                             </tr>
                         </tbody>
                     </table>
+</div>
+</div>
 
-		     {% endfor %}
+		     {% comment %} {% endfor %} {% endcomment %}
                 </div>
                 
                 <div class="col-md-4">
@@ -92,9 +66,9 @@ hello {{ user.username}}, <br><br>
 {% comment %} <button><a href="{% url  'book_appointment:profile_edit' user.id  %}">edit profile</a></button><br><br><br><br> {% endcomment %}
 
 
-<a class="btn btn-primary" href="{% url 'book_appointment:venue' %}" role="button">venue</a><br><br><br><br>
+<a id="venue" class="btn btn-primary" href="{% url 'book_appointment:venue' %}" role="button">Book venue</a><br><br><br><br>
 
-<a class="btn btn-primary" href="{% url 'book_appointment:book' %}" role="button">book appointment</a>
+<a id="appointment" class="btn btn-primary" href="{% url 'book_appointment:book' %}" role="button">book appointment</a>
 
 
 
@@ -104,25 +78,6 @@ login
 
 {% endif %}
 
-{% comment %} 
-{% for user in users %}
 
-<table>
-    <tr>
-    <td>{{ user.First_name} }</td>
-    <td>{{ user.Middle_name }}</td>
-    <td>{{ user.Last_name }}</td>
-    <td>{{ user.Occupation }}</td>
-    <td>{{ user.Email }}</td>
-    <td>{{user.Passport}}</td>
-    
-    
-    </tr>
-    
-    </table>
-
-{% endfor %}
-
-    <a href="{% url  book_appointment 'profile_edit/<int:id>/' %}">Edit Profile</a>  {% endcomment %}
 
 {% endblock content %}

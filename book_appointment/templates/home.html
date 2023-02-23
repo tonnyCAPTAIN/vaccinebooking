@@ -6,13 +6,11 @@
 
 
 
-<center><h1> WELCOME TO KNH VACCINE BOOKING !!!</h1></center><br><br><br>
+<center class="salu">WELCOME TO KNH VACCINE BOOKING !!!</center><br><br><br>
 
 
 
-<img class="pic"
-src="/home/captain/KNH/APPOINTMENT/covid/book_appointment/static/book_appointment/media/x-special/nautilus-clipboard copy file:/home/captain/Downloads/Coronavirus-Awareness.jpg" alt="", 
-sizes="(max-width: 600px) ">
+
 
 
 {% if user.is_authenticated %}
@@ -23,7 +21,13 @@ sizes="(max-width: 600px) ">
 
 
 {% else %}
-    <center><strong><p>You are not Logged in</p></strong></center>
+    <div class="banner">
+<div class="before-log">
+<h1>Hello dear , have you gotten your jab ? If not kindly book with us for vaccination. 
+</h1>
+</div>
+</div>
+
 
     
 
