@@ -16,6 +16,11 @@ import os
 import django_heroku
 import smtplib, ssl
 
+import environ
+
+env = environ.Env()
+environ.Env.read_env()
+
 
 from decouple import config, Csv
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -26,7 +31,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'x&j0kfs+q@yqqt2m@8g0kuo$se$ux=ny1q+_5$4nzsd0*#qel7'
+SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = config('DEBUG', cast=bool, default=False)
@@ -87,9 +92,9 @@ WSGI_APPLICATION = 'covid.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'corona',
-        'USER': 'cap',
-        'PASSWORD': 'toNNY123@',
+        'NAME': env('DATABASE_NAME'),
+        'USER': env('DATABASE_USER'),
+        'PASSWORD': env('DATABASE_PASS'),
         'HOST': 'localhost',
         'PORT': 5432
     }
