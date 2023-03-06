@@ -1,19 +1,19 @@
 # vaccinebooking
-**A web application that one can register a date for vaccination or hospital appointmen. 
+** A web application that one can register a date for vaccination or hospital appointmen. 
 
 ## Gettigns started
-Go to [https://github.com/tonnyCAPTAIN/vaccinebooking] Download or clone the repository to your local machine. Open the project using your favorite IDE
+Go to (https://github.com/tonnyCAPTAIN/vaccinebooking) Download or clone the repository to your local machine. Open the project using your favorite IDE
 
 ---
 
-##Prerequisites
-.Python3
-Virtual environment
-Django
-Postgres
-Browser e.g chrome, firefox
+## Prerequisites
+. Python3
+. Virtual environment
+. Django
+. Postgres
+. Browser e.g chrome, firefox
 
-##Application requirements
+## Application requirements
 . DATABASE_NAME=DATABASE_NAME
 . DATABASE_USER=DATABASE_USER
 . DATABASE_PASSWORD=db_user_password
