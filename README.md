@@ -7,19 +7,19 @@ Go to (https://github.com/tonnyCAPTAIN/vaccinebooking) Download or clone the rep
 ---
 
 ## Prerequisites
-.Python3
-.Virtual environment
-.Django
-.Postgres
-.Browser e.g chrome, firefox
+* Python3
+* Virtual environment
+* Django
+* Postgres
+* Browser e.g chrome, firefox
 
 ## Application requirements
-.DATABASE_NAME=DATABASE_NAME
-.DATABASE_USER=DATABASE_USER
-.DATABASE_PASSWORD=db_user_password
-.DATABASE_HOST=db_host
-.DATABASE_PORT=db_port
-.SECRET_KEY='Applications_secret_key'
+* DATABASE_NAME=DATABASE_NAME
+* DATABASE_USER=DATABASE_USER
+* DATABASE_PASSWORD=db_user_password
+* DATABASE_HOST=db_host
+* DATABASE_PORT=db_port
+* SECRET_KEY='Applications_secret_key'
 
 Save the file.
 
