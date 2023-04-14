@@ -37,7 +37,7 @@ SECRET_KEY = env('SECRET_KEY')
 # DEBUG = config('DEBUG', cast=bool, default=False)
 DEBUG= True
 
-ALLOWED_HOSTS = ['0.0.0.0', 'localhost','127.0.0.1','https://vaccine-book.herokuapp.com']
+ALLOWED_HOSTS = ['0.0.0.0', 'localhost','127.0.0.1']
 
 
 # Application definition
@@ -181,4 +181,4 @@ SESSION_SAVE_EVERY_REQUEST = True
 
 
 
-django_heroku.settings(locals())
+# django_heroku.settings(locals())
