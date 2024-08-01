@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+    
+{% block title %} BOOK {% endblock %}
+
+{% block content %} 
+{% load crispy_forms_tags %}
+
+<!-- current user :{{ user.id}}
+ {% if user.is_authenticated %} -->
+
+
+<center><h2>First booking</h2></center>
+
+<div class="container-fluid">
+<form  class="form-4" action="" enctype="multipart/form-data" method="POST">
+        {% csrf_token %}
+        {{ form | crispy}}
+        <input type="submit" name="submit" value="BOOK">
+
+</form>
+
+
+<!-- {% else %}
+<h2>You need to log in</h2>
+
+{% endif %} -->
+
+
+
+        {% if messages %}
+        {% for message in messages %}
+                <div class="alert alert-success{{message.tag}}">{{message}}</div>
+
+
+        {% endfor %}
+        {% endif %}
+
+
+        Hi {{user.username}} <br><br>
+
+        <centre><a class="btn btn-primary" href="{% url 'logout' %}" role="button">Log out</a></centre>
+
+</div>
+{% endblock %}

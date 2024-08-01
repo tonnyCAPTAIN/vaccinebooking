@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %} allocation{% endblock %}
+
+{% block content %} 
+
+
+
+<center><h1> profiles </h1></center>
+
+
+{% for cluster in clusters %}
+
+<h3>{{ cluster}} </h3> <br>
+
+
+
+
+{% endfor %}
+
+{% for doc in docs %}
+
+<h2>{{doc}}</h2>
+
+{% endfor %}
+
+
+{% endblock %}

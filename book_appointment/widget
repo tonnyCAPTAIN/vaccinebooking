@@ -1,0 +1,4 @@
+from django.forms import DateTimeInput
+
+class XDSofDateTimePickerInput(DateTimeInput):
+    template_name = 'widget/xdosft_datetimepicker.html'

@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block title %} WELCOME TO KNH VACCINE BOOKING{% endblock %}
+
+{% block content %} 
+
+
+
+<center class="salu">WELCOME TO KNH VACCINE BOOKING !!!</center><br><br><br>
+
+
+
+
+
+
+{% if user.is_authenticated %}
+    <p> Jambo {{ user.username }}, Check your email for the date booked and doctor to server you. Thank you </p><br><br>
+    <a href="{% url 'logout' %}">Log out</a>
+
+  
+
+
+{% else %}
+    <div class="banner">
+<div class="before-log">
+<h1>Hello dear , have you gotten your jab ? If not kindly book with us for vaccination. 
+</h1>
+</div>
+</div>
+
+
+    
+
+
+{% endif %}
+
+
+{% endblock %}

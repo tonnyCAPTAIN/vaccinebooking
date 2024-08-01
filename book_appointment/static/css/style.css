@@ -1,0 +1,230 @@
+            h1 {
+                margin-top: 20px;
+                color: rgb(31, 184, 31);
+                padding: 0pc 30px;
+                text-align: center;
+            }
+            
+            a:link {
+                color: pink;
+            }
+            
+            a:visited {
+                color: rgb(20, 107, 20);
+            }
+            
+            form {
+                text-align: center;
+            }
+            
+            .success {
+                background-color: green;
+                color: white;
+            }
+            
+            .navbar-custom {
+                background-color: gold;
+            }
+            
+            .form-3 {
+                font-family: sans-serif;
+                font-weight: 400;
+                text-align: center;
+                /* Size and position */
+                width: 450px;
+                height: 250%;
+                position: relative;
+                margin-top: 70px;
+                padding: 40px 40px;
+                align-items: center;
+                /* Styles */
+                background: hsl(180, 40%, 81%);
+                border-radius: 0.4em;
+                border: 1px solid #191919;
+                box-shadow: inset 0 0 2px 1px rgba(255, 255, 255, 0.08), 0 16px 10px -8px rgba(0, 0, 0, 0.6);
+            }
+            
+            .form-3 input[type=submit]:hover {
+                box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6);
+            }
+            
+            .form-3:after {
+                /* Size and position */
+                content: "";
+                height: 1px;
+                width: 33%;
+                justify-content: center;
+                margin-left: auto;
+                margin-right: auto;
+                top: 0;
+                /* Styles */
+                background: linear-gradient(left, transparent, #444, #b6b6b8, #444, transparent);
+            }
+            /* Small flash */
+            
+            .form-3:before {
+                /* Size and position */
+                content: "";
+                width: 10px;
+                height: 5px;
+                /* position: absolute; */
+                justify-content: center;
+                left: 34%;
+                top: -7px;
+                margin-left: auto;
+                margin-right: auto;
+                /* Styles */
+                border-radius: 50%;
+                box-shadow: 0 0 6px 4px #fff;
+            }
+            
+            .form-3 p:nth-child(1):before {
+                /* Size and position */
+                content: "";
+                width: 90%;
+                height: 100px;
+                justify-content: center;
+                top: 0;
+                margin-left: auto;
+                margin-right: auto;
+                /* Styles */
+                transform: rotate(75deg);
+                background: linear-gradient(50deg, rgba(248, 248, 248, 0.953), rgba(0, 0, 0, 0));
+                pointer-events: none;
+            }
+            
+            .no-pointerevents .form-3 p:nth-child(1):before {
+                display: none;
+            }
+            /* profile */
+            
+            .xyz {
+                margin-bottom: 30px;
+                margin-top: 20px;
+                width: 100%;
+                justify-content: center;
+                background: rgb(85, 150, 150);
+            }
+            
+            a input[type=text] {
+                background-color: white(223, 223, 233);
+                background-position: 10px 10px;
+            }
+            
+            .form-2 {
+                font-family: sans-serif;
+                font-weight: 400;
+                width: 100%;
+                justify-content: center;
+                margin-top: 20px;
+                margin-bottom: 30px;
+                background: rgb(237, 240, 240);
+                border-radius: 0.4em;
+                border: 1px solid #191919;
+                box-shadow: inset 0 0 2px 1px rgba(255, 255, 255, 0.08), 0 16px 10px -8px rgba(0, 0, 0, 0.6);
+            }
+            
+            .form-4 {
+                font-family: sans-serif;
+                font-weight: 400;
+                width: 500px;
+                position: centre;
+                margin-top: 50px;
+                margin-left: 30%;
+                padding: 10px;
+                background-color: rgb(67, 115, 134);
+            }
+            
+            .book-txt {
+                margin-top: 70%;
+                position: relative;
+                left: 50%;
+            }
+            
+            .navbar-light .navbar-nav .nav-link {
+                font-size: 20px;
+                color: #FFFFFF;
+            }
+            
+            .abc {
+                margin-bottom: 30px;
+                margin-top: 20px;
+                width: 100%;
+                justify-content: center;
+                background: rgb(179, 156, 184);
+            }
+            
+            footer {
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                color: rgb(24, 23, 23);
+                background-color: hsla(207, 67%, 59%, 0.882);
+            }
+            
+            body {
+                min-height: 100vh;
+                position: relative;
+                margin: 0;
+                padding-bottom: 100px;
+                background: rgb(163, 128, 128);
+            }
+            
+            .salu {
+                color: peru;
+                font-weight: 300px;
+                padding: 10px;
+                margin: 20px;
+                letter-spacing: 2px;
+            }
+            
+            .banner {
+                background-image: url("https://content.codecademy.com/courses/web-101/unit-6/htmlcss1-img_tahoe.jpeg");
+                background-size: cover;
+                height: 700px%;
+                width: 100%;
+                padding-top: 50px;
+            }
+            
+            .before-log h1 {
+                position: relative;
+                top: -20px;
+                width: 450px;
+                margin: 0 auto;
+                border: solid whitesmoke 3px;
+                border-radius: 15px;
+                color: brown
+            }
+            
+            .container li:hover {
+                background: black;
+                color: white;
+            }
+            
+            .signup {
+                position: relative;
+                color: brown;
+                padding-bottom: 50px;
+                padding-top: 50px;
+            }
+            
+            #venue {
+                background-color: rgb(42, 60, 216);
+                color: white;
+                margin: 40px;
+            }
+            
+            #appointment {
+                background-color: rgb(42, 60, 216);
+                color: white;
+                margin: 40px;
+            }
+            
+            .profileinfo {
+                /* padding-left: ; */
+                /* padding-right: ; */
+                border: 3px solid coral;
+                width: 50%;
+                margin: auto;
+            }

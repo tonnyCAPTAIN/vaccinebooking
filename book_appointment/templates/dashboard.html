@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+
+{% block title %} about page{% endblock %}
+
+{% block content %} 
+
+
+
+<center><h1> DASHBOARD </h1></center>
+
+
+
+{% if request.user.is_authenticated %}
+
+hello {{ user.username}},, <br><br>
+
+
+
+<div class="profileinfo">
+ <div class="col-md-8">
+                    <table class="table table-borderless">
+
+		     {% comment %} {% for user in prof %} {% endcomment %}
+                        <thead>
+                            <span class="h4">Profile Information</span class="h4">
+                            {% comment %} <a class="btn btn-info btn-sm float-right" href="{% url 'book_appointment:profile_edit' user.id %}">Edit</a> {% endcomment %}
+                            <hr>
+                        </thead>
+                        <tbody>
+
+			
+                            <tr>
+                                <th scope="row">first Name</th>
+                                <td>{{ user.profile.First_name }}</td>
+                            </tr>
+                            
+                            <tr>
+                                <th scope="row">Middle Name</th>
+                                <td>{{ user.profile.Middle_name }}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Last Name</th>
+                                <td>{{ user.profile.Last_name }}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Ocupation</th>
+                                <td>{{ user.profile.Occupation }}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Email</th>
+                                <td>{{ user.profile.Email }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+</div>
+</div>
+
+		     {% comment %} {% endfor %} {% endcomment %}
+                </div>
+                
+                <div class="col-md-4">
+                    <img class="img-thumbnail" src="{{ user.Passport.image.url }}" alt="profile-image">
+                </div>
+
+
+{% comment %} <button><a href="{% url  'book_appointment:profile_edit' user.id  %}">edit profile</a></button><br><br><br><br> {% endcomment %}
+
+
+<a id="venue" class="btn btn-primary" href="{% url 'book_appointment:venue' %}" role="button">Book venue</a><br><br><br><br>
+
+<a id="appointment" class="btn btn-primary" href="{% url 'book_appointment:book' %}" role="button">book appointment</a>
+
+
+
+{% else %}
+
+login
+
+{% endif %}
+
+
+
+{% endblock content %}
